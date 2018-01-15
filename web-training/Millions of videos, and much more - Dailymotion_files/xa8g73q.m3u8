@@ -1,0 +1,2 @@
+var _cst=[];var _css=[];
+_csi=0;function _csl(){if(_csi<_cst.length){(new Image()).src=_cst[_csi];_csi++;window.setTimeout(function(){_csl();},500);}else{window.setTimeout(function(){for(u in _css)(new Image()).src=_css[u];},2000);}};window.setTimeout(function(){_csl();},2000);

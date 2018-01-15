@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Development Training</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /p target="_blank"rint-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Web Dev Training</h2>
+					<h4>00. Overview & Useful Tools</h4>
+					<p>
+						<small>By <a href="bo.hou@dailymotion.com">Bo HOU</a> ( <a href="bo.hou@dailymotion.com">bo.hou@dailymotion.com</a> )</small>
+					</p>
+				</section>
+
+				<!-- How Web Works-->
+				<section>
+					<section>
+						<h3>How Web Works?</h3>
+					</section>
+					<section>
+						<h3>World Wide Web</h3>
+						<p>The World Wide Web (Web) is an information space where documents and other web resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and can be accessed via the Internet.</p>
+					</section>
+					<section>
+						<h3>WebPage Rendering</h3>
+						<img style="height:500px; background:none; border:none; box-shadow:none;" src="img/web-training/how_web_works.svg"/>
+					</section>
+					<section>
+						<h3>WebPage Hosting & Serving</h3>
+						<img style="height:500px; background:none; border:none; box-shadow:none;" src="img/web-training/webpage_hosting.svg"/>
+					</section>
+					<section>
+						<h3>Examples</h3>
+						<ul>
+							<li><a href="web-training/dailymotion.html" target="_blank">dailymotion.com</a></li>
+							<li><a href="web-training/dailymotion-no-css.html" target="_blank">dailymotion.com without css</a></li>
+							<li><a href="web-training/dailymotion-no-javascript.html" target="_blank">dailymotion.com without javascript</a></li>
+						</ul>
+					</section>
+
+				</section>
+				<!-- End of How Web Works -->
+				<!-- Introduction of HTML -->
+				<section>
+					<section>
+						<h3>HTML Basics</h3>
+					</section>
+
+					<section>
+						<h4>What is HTML?</h4>
+						<blockquote>
+							HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.
+						</blockquote>
+						<p class="fragment">HTML is about displaying data</p>
+						<p class="fragment">HTML is about displaying structure not style</p>
+					</section>
+
+					<section>
+						<h4>HTML History</h4>
+						<ul>
+							<li class="fragment">HTML</li>
+							<li class="fragment">HTML4</li>
+							<li class="fragment">XHTML</li>
+							<li class="fragment">HTML5</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4>HTML Element</h4>
+						<pre style="font-size: 36px; text-align: center;"><code class="hljs">&lt;p id="example"&gt;Hello World&lt;/p&gt;</code></pre>
+						<div class="fragment">
+						<p id="example">Hello World</p>
+						</div>
+						<table>
+							<tr class="fragment"><td>p</td><td>tag</td></tr>
+							<tr class="fragment"><td>Hello World</td><td>content</td></tr>
+							<tr class="fragment"><td>id</td><td>attribute name</td></tr>
+							<tr class="fragment"><td>example</td><td>attribute value</td></tr>
+						</table>
+					</section>
+					<section>
+						<h4>Nested Element</h4>
+						<pre style="font-size: 30px; text-align: center;"><code class="hljs">&lt;p&gt;Hello &lt;b style="color: #0af;"&gt;AdOps&lt;/b&gt;&lt;/p&gt;</code></pre>
+						<div class="fragment">
+							<p>Hello <b style="color: #0af;">AdOps</b></p>
+						</div>
+					</section>
+					<section>
+						<h4>Empty Element</h4>
+						<pre style="font-size: 30px; text-align: center;"><code class="hljs">&lt;img src="/img/web-training/hello.gif"&gt;</code></pre>
+						<div class="fragment">
+							<img src="/img/web-training/hello.gif">
+						</div>
+					</section>
+					<section>
+						<h4>HTML Document</h4>
+						<pre style="font-size: 28px;"><code class="hljs">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Hello AdOps&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    你好！&lt;img src="img/web-training/hello.gif"&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+						<a href="web-training/html-basic.html" target="_blank">Try it</a>
+					</section>
+				</section>
+				<!-- End of Introduction of HTML -->
+
+				<!-- Begin of Useful Tools -->
+				<section>
+					<section>
+						<h2>Useful Tools</h2>
+					</section>
+				</section>
+				<!-- End of Useful Tools -->
+
+				<!-- Begin of HTML Editors -->
+				<section>
+					<section>
+						<h3>HTML Editors</h3>
+						<p class="fragment">In general: any text editor will do the job</p>
+					</section>
+					<section>
+						<h3>But ...</h3>
+						<div class="fragment">
+							<img style="height:360px; background:none; border:none; box-shadow:none;" src="img/web-training/notepad.png"/>
+							<p>This is not good enough</p>
+						</div>
+					</section>
+					<section>
+						<h3>And ...</h3>
+						<div class="fragment">
+							<img style="height:360px; background:none; border:none; box-shadow:none;" src="img/web-training/word.png"/>
+							<p>This will not work</p>
+						</div>
+					</section>
+					<section>
+						<h3>A better editor has</h3>
+						<ul class="fragment">
+							<li>Syntax Highlighting</li>
+							<li>Auto Formatter</li>
+							<li>Auto Completion</li>
+							<li>Other cool features ...</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Sublime Text 3</h3>
+						<p><a href="https://www.sublimetext.com/" target="_blank">https://www.sublimetext.com/</a></p>
+					</section>
+					<section>
+						<h3>Atom</h3>
+						<p><a href="https://atom.io" target="_blank">https://atom.io/</a></p>
+					</section>
+					<section>
+						<h3>Visual Studio Code</h3>
+						<p><a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a></p>
+					</section>
+					<section>
+						<h3>Links</h3>
+						<p><a href="">Sublime Text 3</a></p>
+						<p><a href="">Atom</a></p>
+						<p><a href="">Visual Studio Code</a></p>
+					</section>
+				</section>
+				<!-- End of HTML Editors -->
+				
+				<!-- Begin of Online Tools -->
+				<section>
+					<section>
+						<h3>Online Tools</h3>
+						<p><a href="https://codepen.io/" target="_blank">CodePen</a></p>
+						<p><a href="https://jsfiddle.net/" target="_blank">JSFiddle</a></p>
+						<p><a href="https://jsbin.com/" target="_blank">JSBin</a></p>
+					</section>
+				</section>
+				<!-- End of Online Tools -->
+
+				<!-- Begin of Debug -->
+				<section>
+					<section>
+						<h3>HTML Debug tools / Inspectors</h3>
+					</section>	
+					<section>
+						<h3>Suggested Browsers</h3>
+						<ol style="list-style-type: none;">
+							<li><a href="https://www.google.com/chrome/browser/desktop/index.html" target="_blank">1. Chrome</a></li>
+							<li><a href="https://www.mozilla.org" target="_blank">2. Firefox</a></li>
+						</ol>
+					</section>
+				</section>
+				<!-- End of Debug -->
+
+				<!-- Begin of Other resources -->
+				<section>
+					<section>
+						<h3>Other Useful Resources</h3>
+					</section>
+					<section>
+						<p><a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></p>
+						<p><a href="https://www.w3schools.com/">W3 Schools</a></p>
+					</section>
+				</section>
+				<!-- End of Other resources -->
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 960,
+				height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				// margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				// minScale: 0.2,
+				// maxScale: 1.5
+
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			/*
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			*/
+		</script>
+	</body>
+</html>

@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Development Training</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /p target="_blank"rint-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Web Dev Training</h2>
+					<h4>01. HTML</h4>
+					<p>
+						<small>By <a href="bo.hou@dailymotion.com">Bo HOU</a> ( <a href="bo.hou@dailymotion.com">bo.hou@dailymotion.com</a> )</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>HTML Basics Review</h2>
+				</section>
+
+				<!-- Learn from newspaper -->
+				<section>
+					<section>
+						<h2>Learn from newspaper</h2>
+					</section>
+					<section>
+						<img style="height:600px; background:none; border:none; box-shadow:none;" src="img/web-training/training01/newspaper.jpg"/>
+					</section>
+					<section>
+						<h3>Elements in newspaper</h3>
+						<ul>
+							<li>Text (different sizes)</li>
+							<li>Paragraph</li>
+							<li>Image</li>
+							<li>Link</li>
+							<li>Table *</li>
+							<li>Group</li>
+							<li>Layout</li>
+							<li>Overlay *</li>
+						</ul>
+					</section>
+				</section>
+				<!-- End of learn from newspaper -->
+
+				<!-- Text --> 
+				<section>
+					<section>
+						<h2>Text</h2>
+					</section>
+					<section>
+						<h3>Pure Text</h3>
+						<pre style="font-size: 16px; text-align: left;"><code>
+Text itself is valid HTML element.
+
+You can have an HTML document with only text, most of the browsers can render it.
+
+Copy this text to a file, and rename it with .html extension 
+						</code></pre>
+						<p class="fragment" style="font-size:24px;">
+Text itself is valid HTML element.
+
+You can have an HTML document with only text, most of the browsers can render it.
+
+Copy this text to a file, and rename it with .html extension
+						</p>
+						<p class="fragment">
+							<a href="https://codepen.io/bhou/pen/qpyjax" target="_blank">Try it</a>
+						</p>
+					</section>
+					<section>
+						<h3>White Space</h3>
+						<pre style="font-size: 18px; text-align: left;"><code class="hljs">
+In browser, the HTML parser will &lt;b   &gt;remove&lt;/b&gt; additional     white   space.
+						</code></pre>
+						<p class="fragment" style="font-size: 24px;">
+							In browser, the HTML parser will <b    >remove</b> additional     white   space.
+						</p>
+					</section>
+
+					<section>
+						<h2>Paragraph</h2>
+						<pre style="font-size: 16px; text-align: left;"><code>
+&lt;p&gt;Text itself is valid HTML element.&lt;/p&gt;
+
+&lt;p&gt;You can have an HTML document with only text, most of the browsers can render it.&lt;/p&gt;
+
+&lt;p&gt;Copy this text to a file, and rename it with .html extension &lt;/p&gt;
+						</code></pre>						
+						<div class="fragment" style="font-size:24px;text-align: left;">
+							<p>Text itself is valid HTML element.</p>
+
+							<p>You can have an HTML document with only text, most of the browsers can render it.</p>
+
+							<p>Copy this text to a file, and rename it with .html extension</p>
+						</div>
+					</section>
+
+					<section>
+						<h3>Heading</h3>
+						<pre style="font-size: 16px; text-align: left;"><code>
+&lt;h3&gt;This is Level 3 heading&lt;/h3&gt;
+						</code></pre>
+						<div class="fragment">
+							<h3>This is Level 3 heading</h3>
+						</div>
+					</section>
+					<section>
+						<h1>Level 1</h1>
+						<h2>Level 2</h2>
+						<h3>Level 3</h3>
+						<h4>Level 4</h4>
+						<h5>Level 5</h5>
+						<h6>Level 6</h6>
+					</section>
+
+					<section>
+						<h3>List</h3>
+					</section>
+
+					<section>
+						<h3>Emphasis & Importance</h3>
+					</sectin>
+				</section>
+				<!-- End of Text -->
+
+				<!-- Agenda -->
+				<section>
+					<h3>Agenda</h3>
+					<ul>
+						<li>Block vs Inline Elements</li>
+						<li>Element, Nested Element, Empty Element</li>
+						<li>Attribute, Boolean Attribute, attribute quote (single/double)</li>
+						<li>HTML structure</li>
+						<li>White space</li>
+						<li>Special character</li>
+						<li>Comments</li>
+						<li>semantic element/non-semantic element</li>
+					</ul>
+				</section>
+				<section>
+					<h3>head</h3>
+				</section>
+				<section>
+					<h3>Basic elements for text</h3>
+				</section>
+				<section>
+					<h3>Layout</h3>
+					<p>div & span</p>
+					<p>br & hr</p>
+				</section>
+				<section>
+					<h3>link</h3>
+					<p>title</p>
+					<p>target</p>
+					<p>href: absoulte and relatif</p>
+					<p>download</p>
+					<p>mailto</p>
+				</section>
+				<section>
+					<h3>video and audio</h3>
+				</section>
+				<!-- End of Agenda -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 960,
+				height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				// margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				// minScale: 0.2,
+				// maxScale: 1.5
+
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			/*
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			*/
+		</script>
+	</body>
+</html>
