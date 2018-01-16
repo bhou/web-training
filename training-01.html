@@ -33,7 +33,43 @@
 				</section>
 
 				<section>
-					<h2>HTML Basics Review</h2>
+					<section>
+						<h2>HTML Basics Review</h2>
+					</section>
+					<section>
+						<h4>HTML Element</h4>
+						<pre style="font-size: 36px; text-align: center;"><code class="hljs">&lt;p id="example"&gt;Hello World&lt;/p&gt;</code></pre>
+						<div>
+						<p id="example">Hello World</p>
+						</div>
+					</section>
+					<section>
+						<h4>Nested Element</h4>
+						<pre style="font-size: 30px; text-align: center;"><code class="hljs">&lt;p&gt;Hello &lt;b style="color: #0af;"&gt;AdOps&lt;/b&gt;&lt;/p&gt;</code></pre>
+						<div>
+							<p>Hello <b style="color: #0af;">AdOps</b></p>
+						</div>
+					</section>
+					<section>
+						<h4>Empty Element</h4>
+						<pre style="font-size: 30px; text-align: center;"><code class="hljs">&lt;img src="/img/web-training/hello.gif"&gt;</code></pre>
+						<div>
+							<img src="/img/web-training/hello.gif">
+						</div>
+					</section>
+					<section>
+						<h4>HTML Document</h4>
+						<pre style="font-size: 28px;"><code class="hljs">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Hello AdOps&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    你好！&lt;img src="img/web-training/hello.gif"&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+					</section>	
 				</section>
 
 				<!-- Learn from newspaper -->
@@ -132,16 +168,359 @@ In browser, the HTML parser will &lt;b   &gt;remove&lt;/b&gt; additional     whi
 					</section>
 
 					<section>
-						<h3>List</h3>
+						<h3>List - Unordered</h3>
+						<div>
+							<div style="text-align: left; float: left;">
+								<ul>
+									<li>List Item 1</li>
+									<li>List Item 2</li>
+									<li>List Item 3</li>
+									<li>List Item 4</li>
+									<li>List Item 5</li>
+								</ul>
+							</div>
+							<div class="fragment" style="text-align: left; float: right;">
+								<pre style="font-size: 16px; text-align: left;"><code>
+&lt;ul&gt;
+  &lt;li&gt;List Item 1&lt;/li&gt;
+  &lt;li&gt;List Item 2&lt;/li&gt;
+  &lt;li&gt;List Item 3&lt;/li&gt;
+  &lt;li&gt;List Item 4&lt;/li&gt;
+  &lt;li&gt;List Item 5&lt;/li&gt;
+&lt;/ul&gt;
+								</code></pre>	
+							</div>
+						</div>
+					</section>
+					
+					<section>
+						<h3>List - Ordered</h3>
+						<div>
+							<div style="text-align: left; float: left;">
+								<ol>
+									<li>List Item 1</li>
+									<li>List Item 2</li>
+									<li>List Item 3</li>
+									<li>List Item 4</li>
+									<li>List Item 5</li>
+								</ol>
+							</div>
+							<div class="fragment" style="text-align: left; float: right;">
+								<pre style="font-size: 16px; text-align: left;"><code class="hljs">
+&lt;ol&gt;
+  &lt;li&gt;List Item 1&lt;/li&gt;
+  &lt;li&gt;List Item 2&lt;/li&gt;
+  &lt;li&gt;List Item 3&lt;/li&gt;
+  &lt;li&gt;List Item 4&lt;/li&gt;
+  &lt;li&gt;List Item 5&lt;/li&gt;
+&lt;/ol&gt;
+								</code></pre>	
+							</div>
+						</div>
+					</section>
+					
+					<section>
+						<h3>List - Nested</h3>
+						<div>
+							<div style="text-align: left; float: left;">
+								<ol>
+									<li>List Item 1</li>
+									<li>List Item 2
+										<ul>
+											<li>Sub Item 1</li>
+											<li>Sub Item 2</li>
+										</ul>
+									</li>
+									<li>List Item 3</li>
+								</ol>
+							</div>
+							<div class="fragment" style="text-align: left; float: right;">
+								<pre style="font-size: 16px; text-align: left;"><code class="hljs">
+&lt;ul&gt;
+  &lt;li&gt;List Item 1&lt;/li&gt;
+  &lt;li&gt;List Item 2
+    &lt;ul&gt;
+      &lt;li&gt;Sub Item 1&lt;/li&gt;
+      &lt;li&gt;Sub Item 2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;List Item 3&lt;/li&gt;
+&lt;/ul&gt;
+								</code></pre>	
+							</div>
+						</div>
 					</section>
 
 					<section>
 						<h3>Emphasis & Importance</h3>
-					</sectin>
+						<p>
+							China Daily's recent interviews with historians who live in China and Britain, and visits to sites related to the Opium Wars in South China's Guangdong province, formerly Canton, <em style="color: #0af;">See <b>1840</b> page 16</em>
+						</p>
+						
+						<pre class="fragment" style="font-size: 16px; text-align: left;"><code class="hljs">
+... formerly Canton, &lt;em style="color: #0af;"&gt;See &lt;b&gt;1840&lt;/b&gt; page 16&lt;/em&gt;
+						</code></pre>
+					</section>
 				</section>
 				<!-- End of Text -->
 
-				<!-- Agenda -->
+				<!-- Link -->
+				<section>
+					<section>
+						<h3>HyperLink</h3>
+					</section>
+					<section>
+						<h3>Basic Link</h3>
+						<pre style="font-size: 16px; text-align: left;"><code class="hljs">
+&lt;a href="https://bhou.github.io/web-training/"&gt;Web Dev Training&lt;/a&gt;
+						</code></pre>
+						<p>
+							<a href="https://bhou.github.io/web-training/" target="_blank">Web Dev Training</a>
+						</p>
+					</section>
+					<section>
+						<h3>Link Tips</h3>
+						<pre style="font-size: 16px; text-align: left;"><code class="hljs">
+&lt;a href="https://bhou.github.io/web-training/" title="Training"&gt;Web Dev Training&lt;/a&gt;
+						</code></pre>
+						<p>
+							<a href="https://bhou.github.io/web-training/" title="Training" target="_blank">Web Dev Training</a>
+						</p>
+					</section>
+					<section>
+						<h3>Block Link</h3>
+						<pre style="font-size: 16px; text-align: left;"><code class="hljs">
+&lt;a href="https://bhou.github.io/web-training/" title="Training"&gt;
+  &lt;img src="img/web-training/hello.gif"&gt;
+&lt;/a&gt;
+						</code></pre>
+						<p>
+							<a href="https://bhou.github.io/web-training/" title="Training" target="_blank">
+								<img height="300px" src="img/web-training/hello.gif">
+							</a>
+						</p>
+					</section>
+					<section>
+						<h3>Absolute vs Relative URL</h3>
+						<pre style="font-size: 16px; text-align: left;"><code class="hljs">
+&lt;a href="https://bhou.github.io/web-training/training-00.html"&gt;Training 00&lt;/a&gt;
+&lt;a href="training-00.html"&gt;Training 00&lt;/a&gt;
+						</code></pre>
+						<p>
+							<a href="https://bhou.github.io/web-training/training-00.html" target="_blank">ABSOLUTE</a>
+							</br>
+							<a href="training-00.html" target="_blank">RELATIVE</a>
+						</p>
+					</section>
+					<section>
+						<h3>Open in new window</h3>
+						<pre style="font-size: 16px; text-align: left;"><code class="hljs">
+&lt;a href="training-00.html"&gt;Current Tab&lt;/a&gt;
+&lt;a href="training-00.html" target="_blank"&gt;New Tab&lt;/a&gt;
+						</code></pre>
+						<p>
+							<a href="training-00.html">Current Window</a>
+							</br>
+							<a href="training-00.html" target="_blank">New Window</a>
+						</p>
+					</section>
+
+
+				</section>
+				<!-- End of Link -->
+
+				<!-- Layout Basic -->
+				<section>
+					<section>
+						<h3>Layout Basic</h3>
+					</section>
+					<section>
+						<h4>Everything is a <span style="border: 2px solid #0af; padding: 10px;">RECTANGULAR</span></h4>
+					</section>
+					<section>
+						<h4>Put element on webpage one by one</h4>
+						<div style="background: #3f3f3f;padding: 10px; height: 400px;">
+							<div style="width:100%; overflow: hidden;">
+								<div class="fragment" style="float: left; width:40%; border: 1px solid #0af; padding: 10px;">
+									Element
+								</div>
+								<div class="fragment" style="margin-left: 10px; float: left; width:40%; border: 1px dashed #0af; padding: 10px;">
+									Here ?
+								</div>
+							</div>
+							<div class="fragment" style="margin-top: 10px; width:40%;border: 1px dashed #0af; padding: 10px;">
+								Or Here ?
+							</div>
+						</div>
+						<pre style="font-size: 16px; text-align: left;"><code class="hljs">
+&lt;element&gt;Element&lt;/element&gt;&lt;element&gt;Next&lt;/element&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h4>Block Element & Inline Element</h4>
+					</section>
+					<section>
+						<h4>Inline Element</h4>
+						<ul>
+							<li>Follows to the previous element
+								<ul>
+									<li>Stay in the current line</li>
+								</ul>
+							</li>
+							<li>Content is usually "small"</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Inline Element</h4>
+						<div style="padding: 10px;">
+							<div style="width:100%; overflow: hidden;">
+								<div style="margin: 10px; float: left; width:40%; border: 1px solid #0af; padding: 10px;">
+									Inline Element
+								</div>
+								<div class="fragment" style="margin: 10px; float: left; width:40%; border: 1px dashed #0af; padding: 10px;">
+									Inline 1
+								</div>
+								<div class="fragment" style="margin: 10px; float: left; width:30%; border: 1px dashed #0af; padding: 10px;">
+									Inline 2	
+								</div>
+								<div class="fragment" style="margin: 10px; float: left; width:40%; border: 1px dashed #0af; padding: 10px;">
+									Inline 3	
+								</div>
+								<div class="fragment" style="margin: 10px; float: left; width:50%; border: 1px dashed #0af; padding: 10px;">
+									Inline 4	
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h4>Block Element</h4>
+						<ul>
+							<li>A rectangular block</li>
+							<li>Render at a new line</li>
+							<li>Next element starts from a new line</li>
+							<li>Usually acts as a container</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Block Element</h4>
+						<div style="padding: 10px;">
+							<div style="width:100%; overflow: hidden;">
+								<div style="margin: 10px; width:40%; border: 1px solid #0af; padding: 10px;">
+									Block Element
+								</div>
+								<div class="fragment" style="margin: 10px; width:40%; border: 1px dashed #0af; padding: 10px;">
+									Block 1
+								</div>
+								<div class="fragment" style="margin: 10px; width:30%; border: 1px dashed #0af; padding: 10px;">
+									Block 2	
+								</div>
+								<div class="fragment" style="margin: 10px; width:40%; border: 1px dashed #0af; padding: 10px;">
+									Block 3	
+								</div>
+								<div class="fragment" style="margin: 10px; width:50%; border: 1px dashed #0af; padding: 10px;">
+									Block 4	
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h4>Block + Inline Element</h4>
+						<div style="padding: 10px;">
+							<div style="width:100%; overflow: hidden;">
+								<div style="margin: 20px 10px 20px 10px; width:40%; border: 1px solid #0af; padding: 10px;">
+									Inline Element
+								</div>
+								<div class="fragment" style="margin: 10px; width:40%; border: 1px dashed #0af; padding: 10px;">
+									Block
+								</div>
+								<div class="fragment" style="margin: 10px; float: left; width:30%; border: 1px dashed #0af; padding: 10px;">
+									Inline	
+								</div>
+								<div class="fragment" style="margin: 10px; float: left; width:40%; border: 1px dashed #0af; padding: 10px;">
+									Inline	
+								</div>
+								<div class="fragment" style="margin: 10px; float: left; width:50%; border: 1px dashed #0af; padding: 10px;">
+									Block	
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Block & Inline Tags</h3>
+						<ul>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements" target="_blank">Inline Elements</a>
+								<p>a, em, i, img, b, span, ...</p>
+							</li>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements" target="_blank">Block Elements</a>
+								<p>div, figure, input, article, canvas, ...</p>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<!-- End of Layout basic -->
+
+				<!-- Semantic Element -->
+				<section>
+					<section>
+						<h2>Semantic Element</h2>
+					</section>
+					<section>
+						<h3>General Block Element: &lt;div&gt;</h3>
+						<blockquote style="font-size:12p;">
+							&lt;div&gt; is the generic container for flow content. It has no effect on the content or layout until styled using CSS
+						</blockquote>
+					</section>
+					<section>
+						<h3>General Inline Element: &lt;span&gt;</h3>
+						<blockquote style="font-size:12p;">
+							&lt;span&gt; is a generic inline container for phrasing content, which does not inherently represent anything
+						</blockquote>
+					</section>
+					<section>
+						<h3>You can build your whole webpage with div and span</h3>
+					</section>
+					<section>
+						<h3>Common Structure</h3>
+						<a href="http://blog.dailymotion.com/" target="_blank">
+							<img style="height:500px; background:none; border:none; box-shadow:none;" src="img/web-training/training01/common-structure.png"/>
+						</a>
+					</section>
+					<section>
+						<h3>Semantic Tags</h3>
+						<ul>
+							<li>header</li>
+							<li>nav</li>
+							<li>main</li>
+							<li>article</li>
+							<li>aside</li>
+							<li>footer</li>
+						</ul>	
+						<p>
+							<a href="https://codepen.io/bhou/pen/godaey" target="_blank">Try it </a>
+						</p>
+					</section>
+					<section>
+						<h3>Non Semantic Tags</h3>
+						<ul>
+							<li>header - div</li>
+							<li>nav - div</li>
+							<li>main - div</li>
+							<li>article - div</li>
+							<li>aside - div</li>
+							<li>footer - div</li>
+							<li>h2 - span</li>
+						</ul>	
+						<p>
+							<a href="https://codepen.io/bhou/pen/EoeoqJ" target="_blank">Try it </a>
+						</p>
+					</section>
+					<section>
+						<h3>Why use semantic tags?</h3>
+					</section>
+				</section>
+				<!-- End of Semantic Element -->
+
+				<!--
 				<section>
 					<h3>Agenda</h3>
 					<ul>
@@ -177,7 +556,7 @@ In browser, the HTML parser will &lt;b   &gt;remove&lt;/b&gt; additional     whi
 				<section>
 					<h3>video and audio</h3>
 				</section>
-				<!-- End of Agenda -->
+				-->
 			</div>
 		</div>
 
