@@ -520,6 +520,151 @@ In browser, the HTML parser will &lt;b   &gt;remove&lt;/b&gt; additional     whi
 				</section>
 				<!-- End of Semantic Element -->
 
+				<!-- Table -->
+				<section>
+					<section>
+						<h2>Table</h2>
+					</section>
+					<section>
+						<h3>Table Example</h3>
+						<table>
+							<thead>
+								<tr>
+									<th>Item</th>
+									<th>Value</th>
+									<th>Quantity</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Apples</td>
+									<td>$1</td>
+									<td>7</td>
+								</tr>
+								<tr>
+									<td>Lemonade</td>
+									<td>$2</td>
+									<td>18</td>
+								</tr>
+								<tr>
+									<td>Bread</td>
+									<td>$3</td>
+									<td>2</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+					<section>
+						<h3>Basic Elements in Table</h3>
+						<ul>
+							<li>Header</li>
+							<li>Row</li>
+							<li>Column</li>
+							<li>Cell</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Example</h3>
+						<pre style="text-align:left;"><code class="hljs">
+&lt;table&gt;
+  &lt;tr&gt;&lt;td&gt;Row 0 Column 0&lt;/td&gt;&lt;td&gt;Row 0 Column 1&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Row 1 Column 0&lt;/td&gt;&lt;td&gt;Row 1 Column 1&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Row 2 Column 0&lt;/td&gt;&lt;td&gt;Row 2 Column 1&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+						</code></pre>
+						<table>
+							<tr><td>Row 0 Column 0</td><td>Row 0 Column 1</td></tr>
+							<tr><td>Row 1 Column 0</td><td>Row 1 Column 1</td></tr>
+							<tr><td>Row 2 Column 0</td><td>Row 2 Column 1</td></tr>
+						</table>
+					</section>
+					<section>
+						<h3>Header</h3>
+						<pre style="text-align: left;"><code class="hljs">
+&lt;table&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;th&gt;header 1&lt;/th&gt;&lt;th&gt;header 2&lt;/th&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;th&gt;row header 1&lt;/th&gt;&lt;td&gt;cell&lt;/td&gt;&lt;td&gt;cell&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;th&gt;row header 2&lt;/th&gt;&lt;td&gt;cell&lt;/td&gt;&lt;td&gt;cell&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+						</code></pre>
+						<table>
+							<tr><td></td><th>header 1</th><th>header 2</th></tr>
+							<tr><th>row header 1</th><td>cell</td><td>cell</td></tr>
+							<tr><th>row header 2</th><td>cell</td><td>cell</td></tr>
+						</table>
+					</section>
+					<section>
+						<h3>Basic Table Elements</h3>
+						<ul>
+							<li><b>&lt;table&gt;</b>: root element of table</li>
+							<li><b>&lt;tr&gt;</b>: table row</li>
+							<li><b>&lt;td&gt;</b>: table cell</li>
+							<li><b>&lt;th&gt;</b>: table header</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Advanced HTML Table</h>
+					</section>
+					<section>
+						<h4>Span Multiple Columns and Rows</h4>
+						<table>
+							<tr><th>Category</th><th>Date</th><th>Item</th><th>Price</th></tr>
+							<tr><td rowspan="2">Alimentation</td><td>1 Jan</td><td>Restaurant</td><td>$10</td></tr>
+							<tr><td>5 Jan</td><td>Carrefour</td><td>$20</td></tr>
+							<tr><td></td><td colspan="2">Total</td><td>$30</td></tr>
+						</table>
+					</section>
+					<section>
+						<pre style="font-size:14px;"><code class="html">
+&lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;Category&lt;/th&gt;&lt;th&gt;Date&lt;/th&gt;&lt;th&gt;Item&lt;/th&gt;&lt;th&gt;Price&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td rowspan="2"&gt;Alimentation&lt;/td&gt;&lt;td&gt;1 Jan&lt;/td&gt;&lt;td&gt;Restaurant&lt;/td&gt;&lt;td&gt;$10&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;5 Jan&lt;/td&gt;&lt;td&gt;Carrefour&lt;/td&gt;&lt;td&gt;$20&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td colspan="2"&gt;Total&lt;/td&gt;&lt;td&gt;$30&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+						</code></pre>
+						<table class="fragment">
+							<tr><th>Category</th><th>Date</th><th>Item</th><th>Price</th></tr>
+							<tr><td rowspan="2">Alimentation</td><td>1 Jan</td><td>Restaurant</td><td>$10</td></tr>
+							<tr><td>5 Jan</td><td>Carrefour</td><td>$20</td></tr>
+							<tr><td></td><td colspan="2">Total</td><td>$30</td></tr>
+						</table>
+					</section>
+					<section>
+						<h3>Semantic Table</h3>
+						<ul style="font-weight:bold;">
+							<li>&lt;thead&gt;</li>
+							<li>&lt;tfoot&gt;</li>
+							<li>&lt;tbody&gt;</li>
+						</ul>
+					</section>
+					<section>
+						<pre style="font-size:14px;"><code class="html">
+&lt;table&gt;
+	&lt;thead&gt;&lt;th&gt;Category&lt;/th&gt;&lt;th&gt;Date&lt;/th&gt;&lt;th&gt;Item&lt;/th&gt;&lt;th&gt;Price&lt;/th&gt;&lt;/thead&gt;
+	&lt;tr&gt;&lt;td rowspan="2"&gt;Alimentation&lt;/td&gt;&lt;td&gt;1 Jan&lt;/td&gt;&lt;td&gt;Restaurant&lt;/td&gt;&lt;td&gt;$10&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;5 Jan&lt;/td&gt;&lt;td&gt;Carrefour&lt;/td&gt;&lt;td&gt;$20&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td colspan="2"&gt;Total&lt;/td&gt;&lt;td&gt;$30&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+						</code></pre>
+						<table>
+							<thead><tr><th>Category</th><th>Date</th><th>Item</th><th>Price</th></tr></thead>
+							<tbody>
+								<tr><td rowspan="2">Alimentation</td><td>1 Jan</td><td>Restaurant</td><td>$10</td></tr>
+								<tr><td>5 Jan</td><td>Carrefour</td><td>$20</td></tr>
+							</tbody>
+							<tfoot><tr><td></td><td colspan="2">Total</td><td>$30</td></tr></tfoot>
+						</table>
+					</section>
+					<section>
+						<h3>Do <span style="color:red;">NOT</span> use table as Layout</h3>
+					</section>
+				</section>
+				<!-- End of Table -->
+
+				<!-- Input -->
+				<!-- End of Input -->
+
 				<!--
 				<section>
 					<h3>Agenda</h3>
