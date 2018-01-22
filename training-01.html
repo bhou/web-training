@@ -12,6 +12,47 @@
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+		<style>
+pre {
+	tab-size: 2;
+	-moz-tab-size:2;
+}
+
+form {
+  /* Just to center the form on the page */
+  width: 100%;
+  /* To see the outline of the form */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+
+form div + div {
+  margin-top: 1em;
+}
+
+label {
+	/* To make sure that all labels have the same size and are properly aligned */
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+}
+
+input, textarea {
+  /* To make sure that all text fields have the same font settings
+     By default, textareas have a monospace font */
+  font: 1em sans-serif;
+	margin: 10px;
+
+  /* To give the same size to all text fields */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* To harmonize the look & feel of text field border */
+  border: 1px solid #999;
+}
+		</style>
+
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -579,12 +620,12 @@ In browser, the HTML parser will &lt;b   &gt;remove&lt;/b&gt; additional     whi
 						</table>
 					</section>
 					<section>
-						<h3>Header</h3>
+						<h3>Table Header</h3>
 						<pre style="text-align: left;"><code class="hljs">
 &lt;table&gt;
-	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;th&gt;header 1&lt;/th&gt;&lt;th&gt;header 2&lt;/th&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th&gt;row header 1&lt;/th&gt;&lt;td&gt;cell&lt;/td&gt;&lt;td&gt;cell&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th&gt;row header 2&lt;/th&gt;&lt;td&gt;cell&lt;/td&gt;&lt;td&gt;cell&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;th&gt;header 1&lt;/th&gt;&lt;th&gt;header 2&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;th&gt;row header 1&lt;/th&gt;&lt;td&gt;cell&lt;/td&gt;&lt;td&gt;cell&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;th&gt;row header 2&lt;/th&gt;&lt;td&gt;cell&lt;/td&gt;&lt;td&gt;cell&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 						</code></pre>
 						<table>
@@ -639,12 +680,15 @@ In browser, the HTML parser will &lt;b   &gt;remove&lt;/b&gt; additional     whi
 						</ul>
 					</section>
 					<section>
-						<pre style="font-size:14px;"><code class="html">
+						<h3>Semantic Table Example</h3>
+						<pre style="font-size:14px;tab-size: 2;-moz-tab-size:2;"><code class="html">
 &lt;table&gt;
-	&lt;thead&gt;&lt;th&gt;Category&lt;/th&gt;&lt;th&gt;Date&lt;/th&gt;&lt;th&gt;Item&lt;/th&gt;&lt;th&gt;Price&lt;/th&gt;&lt;/thead&gt;
-	&lt;tr&gt;&lt;td rowspan="2"&gt;Alimentation&lt;/td&gt;&lt;td&gt;1 Jan&lt;/td&gt;&lt;td&gt;Restaurant&lt;/td&gt;&lt;td&gt;$10&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td&gt;5 Jan&lt;/td&gt;&lt;td&gt;Carrefour&lt;/td&gt;&lt;td&gt;$20&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td colspan="2"&gt;Total&lt;/td&gt;&lt;td&gt;$30&lt;/td&gt;&lt;/tr&gt;
+	&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Category&lt;/th&gt;&lt;th&gt;Date&lt;/th&gt;&lt;th&gt;Item&lt;/th&gt;&lt;th&gt;Price&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;&lt;td rowspan="2"&gt;Alimentation&lt;/td&gt;&lt;td&gt;1 Jan&lt;/td&gt;&lt;td&gt;Restaurant&lt;/td&gt;&lt;td&gt;$10&lt;/td&gt;&lt;/tr&gt;
+		&lt;tr&gt;&lt;td&gt;5 Jan&lt;/td&gt;&lt;td&gt;Carrefour&lt;/td&gt;&lt;td&gt;$20&lt;/td&gt;&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tfoot&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td colspan="2"&gt;Total&lt;/td&gt;&lt;td&gt;$30&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;
 &lt;/table&gt;
 						</code></pre>
 						<table>
@@ -653,7 +697,7 @@ In browser, the HTML parser will &lt;b   &gt;remove&lt;/b&gt; additional     whi
 								<tr><td rowspan="2">Alimentation</td><td>1 Jan</td><td>Restaurant</td><td>$10</td></tr>
 								<tr><td>5 Jan</td><td>Carrefour</td><td>$20</td></tr>
 							</tbody>
-							<tfoot><tr><td></td><td colspan="2">Total</td><td>$30</td></tr></tfoot>
+							<tfoot style="border-top:1px solid white;"><tr><td></td><td colspan="2">Total</td><td>$30</td></tr></tfoot>
 						</table>
 					</section>
 					<section>
@@ -663,45 +707,188 @@ In browser, the HTML parser will &lt;b   &gt;remove&lt;/b&gt; additional     whi
 				<!-- End of Table -->
 
 				<!-- Input -->
+				<section>
+					<section>
+						<h2>Form</h2>
+						<p class="fragment" style="font-size:20px;">What newspaper can't do: send data to the author</p>
+					</section>
+					<section>
+						<h3>What is HTML form ?</h3>
+						<p style="font-size:32px;">HTML Forms are one of the main points of interaction between a user and a web site or application. They allow users to send data to the web site.</p>
+					</section>
+					<section data-background="img/web-training/training01/survey.jpg">
+					</section>
+					<section>
+						<h3>Form Example</h3>
+						<div>
+							<form action="/url-for-action" method="post">
+								<div>
+										<label for="name">Name:</label>
+										<input type="text" id="name" name="user_name">
+								</div>
+								<div>
+										<label for="mail">E-mail:</label>
+										<input type="email" id="mail" name="user_mail">
+								</div>
+								<div>
+										<label for="msg">Message:</label>
+										<textarea id="msg" name="user_message"></textarea>
+								</div>
+								<div class="button">
+									<button type="submit">Send your message</button>
+								</div>
+							</form>
+						</div>
+					</section>
+					<section>
+						<pre style="font-size:18px;"><code class="hljs">&lt;form action="/url-for-action" method="post"&gt;
+	&lt;div&gt;
+		&lt;label for="name"&gt;Name:&lt;/label&gt;
+		&lt;input type="text" id="name" name="user_name"&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;label for="mail"&gt;E-mail:&lt;/label&gt;
+		&lt;input type="email" id="mail" name="user_mail"&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;label for="msg"&gt;Message:&lt;/label&gt;
+		&lt;textarea id="msg" name="user_message"&gt;&lt;/textarea&gt;
+	&lt;/div&gt;
+	&lt;div class="button"&gt;
+		&lt;button type="submit"&gt;Send your message&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+					</section>
+					<section>
+						<h3>&lt;label&gt; is not just a text</h3>
+						<pre><code class="hljs">&lt;label for="name"&gt;Name:&lt;/label&gt;
+&lt;input type="text" id="name" name="user_name"&gt;
+</code></pre>
+						<div class="fragment">
+							<label for="name_test">Name:</label>
+							<input type="text" id="name_test" name="user_name">
+						</div>
+					</section>
+					<section>
+						<h3>Click the label</h3>
+						<div>
+							<form action="/url-for-action" method="post">
+								<div>
+										<label for="name1">Name:</label>
+										<input type="text" id="name1" name="user_name" value="adops">
+								</div>
+								<div>
+										<label for="mail1">E-mail:</label>
+										<input type="email" id="mail1" name="user_mail" value="adops@dm.com">
+								</div>
+								<div>
+										<label for="msg1">Message:</label>
+										<textarea id="msg1" name="user_message">Hello World</textarea>
+								</div>
+							</form>
+						</div>
+					</section>
+					<section>
+						<h3><span style="color:#0af;">type</span> attribute</h3>
+					</section>
+					<section>
+						<div>
+							<h3>type <span style="color:#0af;">radio</span></h3>
+							<div style="width: 50%; float: left;">
+								<form>
+									<fieldset>
+										<legend style="width: 100%;text-align: center;">Fruit juice size</legend>
+										<p>
+											<input style="width: 50px;" type="radio" name="size" id="size_1" value="small">
+											<label style="text-align: left;" for="size_1">Small</label>
+										</p>
+										<p>
+											<input style="width: 50px;" type="radio" name="size" id="size_2" value="medium">
+											<label style="text-align: left;" for="size_2">Medium</label>
+										</p>
+										<p>
+											<input style="width: 50px;" type="radio" name="size" id="size_3" value="large">
+											<label style="text-align: left;" for="size_3">Large</label>
+										</p>
+									</fieldset>
+								</form>
+							</div>
+							<div class="fragment" style="width: 50%; margin-top: 30px; float:right;">
+								<pre style="font-size:10px;"><code class="hljs">&lt;form&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;Fruit juice size&lt;/legend&gt;
+
+		&lt;input type="radio" name="size" id="size_1" value="small"&gt;
+		&lt;label for="size_1"&gt;Small&lt;/label&gt;
+
+		&lt;input type="radio" name="size" id="size_2" value="medium"&gt;
+		&lt;label for="size_2"&gt;Medium&lt;/label&gt;
+
+		&lt;input type="radio" name="size" id="size_3" value="large"&gt;
+		&lt;label for="size_3"&gt;Large&lt;/label&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;
+</code></pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div>
+							<h3>type <span style="color:#0af;">checkbox</span></h3>
+							<div style="width: 50%; float: left;">
+								<form>
+									<p>
+										<input style="width: 50px;" type="checkbox" name="taste_1" value="1">
+										<label style="width: 300px; text-align: left;" for="taste_1">I like cherry</label>
+									</p>
+									<p>
+										<input style="width: 50px;" type="checkbox" name="taste_2" value="2">
+										<label style="width: 300px; text-align: left;" for="taste_2">I like banana</label>
+									</p>
+								</form>
+							</div>
+							<div class="fragment" style="width: 50%; margin-top: 30px; float:right;">
+								<pre style="font-size:10px;"><code class="hljs">&lt;form&gt;
+	&lt;input type="checkbox" name="taste_1" value="taste_1"&gt;
+	&lt;label for="taste_1"&gt;I like cherry&lt;/label&gt;
+
+	&lt;input type="checkbox" name="taste_2" value="taste_2"&gt;
+	&lt;label for="taste_2"&gt;I like banana&lt;/label&gt;
+&lt;/form&gt;
+</code></pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>type <span style="color:#0af;">password</span></h3>
+						<pre><code class="hljs">&lt;label for="password"&gt;Password:&lt;/label&gt;
+&lt;input type="text" id="password" name="user_password"&gt;</code></pre>
+						<div class="fragment">
+							<label for="name_test">Password:</label>
+							<input type="password" id="name_test" name="user_name">
+						</div>
+					</section>
+					<section>
+						<h3>type <span style="color:#0af;">email</span></h3>
+						<pre><code class="hljs">&lt;label for="email"&gt;E-mail:&lt;/label&gt;
+&lt;input type="email" id="email" name="user_email"&gt;</code></pre>
+						<div class="fragment">
+							<label for="email_test">Email:</label>
+							<input type="email" id="email_test" name="user_email">
+						</div>
+					</section>
+
+					<section>
+						<h3>References & Docs</h3>
+						<ul>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label" target="_blank">&lt;label&gt;</a></li>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank">&lt;input&gt;</a></li>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea" target="_blank">&lt;textarea&gt;</a></li>
+						</ul>
+					</section>
+				</section>
 				<!-- End of Input -->
 
-				<!--
-				<section>
-					<h3>Agenda</h3>
-					<ul>
-						<li>Block vs Inline Elements</li>
-						<li>Element, Nested Element, Empty Element</li>
-						<li>Attribute, Boolean Attribute, attribute quote (single/double)</li>
-						<li>HTML structure</li>
-						<li>White space</li>
-						<li>Special character</li>
-						<li>Comments</li>
-						<li>semantic element/non-semantic element</li>
-					</ul>
-				</section>
-				<section>
-					<h3>head</h3>
-				</section>
-				<section>
-					<h3>Basic elements for text</h3>
-				</section>
-				<section>
-					<h3>Layout</h3>
-					<p>div & span</p>
-					<p>br & hr</p>
-				</section>
-				<section>
-					<h3>link</h3>
-					<p>title</p>
-					<p>target</p>
-					<p>href: absoulte and relatif</p>
-					<p>download</p>
-					<p>mailto</p>
-				</section>
-				<section>
-					<h3>video and audio</h3>
-				</section>
-				-->
 			</div>
 		</div>
 
@@ -728,7 +915,7 @@ In browser, the HTML parser will &lt;b   &gt;remove&lt;/b&gt; additional     whi
 				history: true,
 				center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: '<slide', // none/fade/slide/convex/concave/zoom
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
