@@ -13,6 +13,25 @@
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<style>
+pre {
+	tab-size: 2;
+	-moz-tab-size:2;
+}
+
+#article-example-1 {
+	border: 1px dashed #0af;
+	padding: 15px;
+}
+
+#article-example-1 h2 {
+	font-size: 36px;
+	color: #0af;
+}
+
+#article-example-1 p {
+	font-size: 24px;
+	text-align: left;
+}
 		</style>
 
 		<!-- Printing and PDF exports -->
@@ -29,12 +48,197 @@
 			<div class="slides">
 				<section>
 					<h2>Web Dev Training</h2>
-					<h4>02. CSS</h4>
+					<h4>02. CSS Basic</h4>
 					<p>
 						<small>By <a href="bo.hou@dailymotion.com">Bo HOU</a> ( <a href="bo.hou@dailymotion.com">bo.hou@dailymotion.com</a> )</small>
 					</p>
 				</section>
+				<section>
+					<section>
+						<h3>What is CSS?</h3>
+					</section>
+					<section>
+						<h3>World Wide Web</h3>
+						<p>The World Wide Web (Web) is an <span style="color:#0af;">information</span> space where documents and other web resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and can be accessed via the Internet.</p>
+					</section>
+					<section>
+						<h3>WebPage Rendering</h3>
+						<img style="height:500px; background:none; border:none; box-shadow:none;" src="img/web-training/how_web_works.svg"/>
+					</section>
 
+					<section>
+						<h3>HTML represents the data</h3>
+						<pre style="font-size:18px;"><code class="html">&lt;article&gt;
+	&lt;h2&gt;Article heading&lt;/h2&gt;
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+Donec a diam lectus. Set sit amet ipsum mauris. Maecenas congue ligula 
+as quam viverra nec consectetur ant hendrerit. Donec et mollis dolor. 
+Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam 
+tincidunt congue enim, ut porta lorem lacinia consectetur.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+						<p class="fragment" style="font-size:18px;">Ideally, HTML works like XML *</p>
+						<p class="fragment" style="font-size:18px;">HTML does not handle how information should be displayed</p>
+					</section>
+					<section>
+						<h3>CSS decides how to show it</h3>
+						<p>(<span style="color:#0af;">C</span>ascading <span style="color:#0af;">S</span>tyle <span style="color:#0af;">S</span>heet)</p>
+						<article id="article-example-1">
+							<h2>Article heading</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						Donec a diam lectus. Set sit amet ipsum mauris. Maecenas congue ligula
+						as quam viverra nec consectetur ant hendrerit. Donec et mollis dolor.
+						Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam
+						tincidunt congue enim, ut porta lorem lacinia consectetur.</p>
+						</article>
+					</section>
+					<section>
+						<h3>CSS is a series of rules</h3>
+						<ul>
+							<li>article has a 1px width, blue, and dashed border</li>
+							<li>set level 2 heading in article to color blue</li>
+							<li>text in the article paragraph are aligned to left</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Rule</h2>
+						<div style="text-align:center;">
+							<div style="display:inline-block;">
+								<p class="fragment" style="text-align: left;">If <span class="fragment" style="color:#0af;">condition</span> then <span class="fragment" style="color:#0af;">action</span></p>
+								<p class="fragment">For CSS</p>
+								<p class="fragment" style="text-align: left;"><span style="color:#0af;">condition</span>: which element?</p>
+								<p class="fragment" style="text-align: left;"><span style="color:#0af;">action</span>: set style</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h2>CSS Rule</h2>
+						<div style="text-align:center;">
+							<div style="display:inline-block;">
+								<p class="fragment" style="text-align: left;">If <span class="fragment" style="color:#0af;">selector</span> then <span class="fragment" style="color:#0af;">declaration</span></p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>CSS Rule Format</h3>
+						<pre><code class="css">selector {
+	declaration;
+	declaration;
+	declaration;	
+}</code></pre>
+					</section>
+				</section>
+				<!-- End of What is CSS -->
+
+				<!-- declaration -->
+				<section>
+					<section>
+						<h2>Declaration</h2>
+					</section>
+					<section>
+						<h2>declaration</h2>
+						<div style="text-align:center;">
+							<div style="display:inline-block;">
+								<div style="width:400px;"><div style="width:40%; float:left; text-align:right; color: #0af;">Property</div> : <div style="width: 40%; float:right; text-align:left; color: #0af;">Value</div></div>	
+								<div class="fragment" style="width:400px; border-top: 1px solid white;"><div style="width:40%; float:left; text-align:right;">color</div> : <div style="width: 40%; float:right; text-align:left;">#0af <span style="color:red;">;</span></div></div>	
+								<div class="fragment" style="width:400px;"><div style="width:40%; float:left; text-align:right;">font-size</div> : <div style="width: 40%; float:right; text-align:left;">18px <span style="color:red;">;</span></div></div>	
+								<div class="fragment" style="width:400px;"><div style="width:40%; float:left; text-align:right;">width</div> : <div style="width: 40%; float:right; text-align:left;">300px <span style="color:red;">;</span></div></div>	
+
+								<p class="fragment" style="text-align: left;">Set <span style="color:#0af;">Property</span> to <span style="color:#0af;">Value</span></p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>multiple declarations</h3>
+						<pre><code class="css">{
+	color: #0af;
+	font-size: 16px;	
+	width: 300px;
+}</code></pre>
+					</section>
+				</section>
+				<!-- End of Declarations -->
+
+				<!-- Selector -->
+				<section>
+					<section>
+						<h2>Selector</h2>
+					</section>
+					<section>
+						<h2>Selector</h2>
+						<p style="text-align: left;">In CSS, selectors are used to target the HTML elements on our web pages that we want to style</p>
+					</section>
+					<section>
+						<h3>Selector Types</h3>
+						<ul>
+							<li>Simple selector</li>
+							<li>Attribute selector</li>
+							<li>Pseudo-classes</li>
+							<li>Pseudo-elements</li>
+							<li>Combinators</li>
+							<li>Multiple selectors</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Simple selector</h3>
+						<p>Select elements by element type, id or class</p>
+						<pre><code class="html">&lt;div id="simple-selector-example" class="code"&gt;...&lt;div&gt;</code></pre>
+						<pre><code class="css">div {
+...
+}
+
+#simple-selector-example {
+...
+}
+
+.code {
+...
+}</code></pre>
+					</section>
+					<section>
+						<h3>Attribute selector</h3>
+						<p>Select elements by element attribute</p>
+						<pre><code class="html">&lt;div favourite-fruit="apple" attr2="value2"&gt;...&lt;/div&gt;
+&lt;div favourite-fruit="apple banana kiwi"&gt;...&lt;/div&gt;</code></pre>
+						<pre><code class="css">[favourite-fruit] {
+...
+}
+
+[favourite-fruit="apple"] {
+...
+}
+
+[favourite-fruit~="apple"] {
+...
+}</code></pre>
+
+					</section>
+					<section>
+						<h3>Attribute selector</h3>
+						<pre><code class="html">&lt;div favourite-fruit="apple" lang="fr-FR"&gt;...&lt;/div&gt;
+&lt;div favourite-fruit="apple banana kiwi"&gt;...&lt;/div&gt;</code></pre>
+						<pre><code class="css">[lang|="fr"] {
+...
+}
+
+[favourite-fruit^="app"] {
+...
+}
+
+[favourite-fruit$="wi"] {
+...
+}
+
+[favourite-fruit*="ppl"] {
+...
+}
+</code></pre>
+					</section>
+
+					<section>
+						<h3>To be continued</h3>
+					</section>
+				</section>
+				<!-- End of Selector -->	
 			</div>
 		</div>
 
