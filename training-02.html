@@ -32,6 +32,18 @@ pre {
 	font-size: 24px;
 	text-align: left;
 }
+
+#hover-example:hover {
+	color: red;
+}
+
+#selection-example::selection {
+	color: red;
+}
+
+#selection-example::-moz-selection {
+	color: red;
+}
 		</style>
 
 		<!-- Printing and PDF exports -->
@@ -233,12 +245,105 @@ tincidunt congue enim, ut porta lorem lacinia consectetur.&lt;/p&gt;
 }
 </code></pre>
 					</section>
+					
+					<section>
+						<h3>Pseudo-classes</h3>
+						<p>A CSS pseudo-class is a keyword, preceded by a colon (:), added to the end of selectors to specify you want to style the selected elements, and only when they are in certain state. </p>
+					</section>
+
+					<section>
+						<h3>Element state</h3>
+						<ul>
+							<li>visited</li>
+							<li>link</li>
+							<li>hover</li>
+							<li>first-child</li>
+							<li>...</li>
+						</ul>
+						<p class="fragment">
+						a full list of element state can be found <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Pseudo-classes_and_pseudo-elements" target="_blank">here</a>
+						</p>
+					</section>
+					<section>
+						<h3>Pseudo-classes Example</h3>
+						<pre><code>&lt;div id="hover-example"&gt;Hover Here&lt;/div&gt;</code></pre>
+						<pre><code>#hover-example:hover {
+	color: red;
+}</code></pre>
+						<div class="fragment">
+							<div id="hover-example">Hover Here</div>						
+						</div>
+					</section>
+
+					<section>
+						<h3>Pseudo-elements</h3>
+						<p>Pseudo-elements are keywords, preceded by two colons (::), that can be added to the end of selectors to select a certain part of an element.</p>
+					</section>
+
+					<section>
+						<h3>Pseudo-elements Example</h3>
+						<pre><code>&lt;div id="selection-example"&gt;Select the text here&lt;/div&gt;</code></pre>
+						<pre><code>#selection-example::selection {
+	color: red;
+}</code></pre>
+						<div class="fragment">
+							<div id="selection-example">Select the text here</div>						
+						</div>
+					</section>
+
+					<section>
+						<h3>Other Pseudo-elements</h3>
+						<ul>
+							<li>::after</li>
+							<li>::before</li>
+							<li>::first-letter</li>
+							<li>::first-line</li>
+							<li>::backdrop</li>
+						</ul>
+						<p style="font-size:18px;">Note: Different browsers might uses a different name for these elements</p>
+					</section>
+
+					<section>
+						<h3>Combine Multiple Selectors Together</h3>
+					</section>
+
+					<section>
+						<h3>Multiple Selectors</h3>
+						<table style="font-size: 24px;">
+							<thead><tr><th>Syntax</th><th>Description</th></tr></thead>
+							<tbody>
+								<tr><td>A, B</td><td>Elements that match A or B</td></tr>
+								<tr><td>A B</td><td>Elements that match B, which is a descendant of element matching A</td></tr>
+								<tr><td>A &gt; B</td><td>Elements that match B, which is a direct child of element matching A</td></tr>
+								<tr><td>A + B</td><td>Elements that match B, which is the next sibling of element matching A</td></tr>
+								<tr><td>A ~ B</td><td>Elements that match B, which is one of the next sibling of element matching A</td></tr>
+							</tbody>
+						</table>
+					</section>
 
 					<section>
 						<h3>To be continued</h3>
 					</section>
 				</section>
 				<!-- End of Selector -->	
+				
+				<!-- Unit -->
+				<section>
+					<h2>Unit In CSS</h2>
+				</section>
+				<!-- End of Unit -->
+
+				<!-- Rule order -->
+				<section>
+					<h2>Rule Conflict & Inheritance</h2>
+				</section>
+				<!-- End of Rule match order -->
+
+				<!-- Box Model -->
+				<section>
+					<h2>Box Model</h2>
+				</section>
+				<!-- End of Box Model -->
 			</div>
 		</div>
 
