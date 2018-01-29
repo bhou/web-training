@@ -321,29 +321,123 @@ tincidunt congue enim, ut porta lorem lacinia consectetur.&lt;/p&gt;
 						</table>
 					</section>
 
-					<section>
-						<h3>To be continued</h3>
-					</section>
 				</section>
 				<!-- End of Selector -->	
 				
 				<!-- Unit -->
 				<section>
-					<h2>Unit In CSS</h2>
+					<section>
+						<h2>Unit In CSS</h2>
+					</section>
+					<section>
+						<h3>Length Units</h3>
+						<ul>
+							<li>px (absolute)</li>
+							<li>em</li>
+							<li>rem</li>
+							<li>vw, vh</li>
+							<li>percentage</li>
+						</ul>
+						<p class="fragment"><a href="https://codepen.io/bhou/project/editor/AwvRjz#" target="_blank">Example</a></p>
+					</section>
+					<section>
+						<h3>Color Units</h3>
+						<ul>
+							<li>Predefined Color</li>
+							<li>RGB</li>
+							<li>HSL</li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool" target="_blank">Useful tool</a>
+						</ul>
+					</section>
 				</section>
 				<!-- End of Unit -->
 
 				<!-- Rule order -->
 				<section>
-					<h2>Rule Conflict & Inheritance</h2>
+					<section>
+						<h2>Rule Conflict & Inheritance</h2>
+					</section>
+					<section>
+						<h3>Rule selection rules</h3>
+						<ol>
+							<li>Important rule is selected</li>
+							<li>The rule matches less elements is selected</li>
+							<li>The rule appeared later is selected</li>
+						</ol>
+						<pre style="font-size: 16px;"><code>style attribute 
+
+&gt; id selector 
+
+&gt; class, attribute, pseudo-class selector
+
+&gt; element, pseudo-element selector</code></pre>
+					<a href="https://codepen.io/bhou/project/editor/AwvRjz#" target="_blank">Example: rule-conflict-inherit.html</a>
+					</section>
+					<section>
+						<h3>CSS Style Inheritance</h3>
+						<ul>
+							<li>inherit</li>
+							<li>initial</li>
+							<li>unset</li>
+						</ul>
+					</section>
 				</section>
 				<!-- End of Rule match order -->
 
 				<!-- Box Model -->
 				<section>
-					<h2>Box Model</h2>
+					<section>
+						<h2>Box Model</h2>
+					</section>
+					<section>
+						<h3>Box Model</h3>	
+						<img style="height:400px; background:none; border:none; box-shadow:none;" src="img/web-training/training02/box-model-standard-small.png"/>
+						<pre style="font-size:12px;"><code>element width = margin-left + border + padding-left + content width + border + padding-right + margin-right</code></pre>
+						<pre style="font-size:12px;"><code>element height = margin-top + border + padding-top + content height + border + padding-bottom + margin-bottom</code></pre>
+					</section>
+					<section>
+						<h3>Overflow</h3>
+						<p style="font-size:16px;">What happens if content is larger than the box size?</p>	
+					</section>
+					<section>
+						<h3>Test overflow by yourself</h3>
+						<div style="text-align:center;">
+							<div id="flow-container" style="display: inline-block; border: 2px solid #0af; width: 300px; height: 300px; overflow: hidden;">
+								<div id="flow-box" style="margin: 10px; border:2px dashed red; width: 400px; height: 200px;">
+								</div>
+							</div>
+						</div>
+						<button id="flow-auto-btn">overflow: auto;</button>
+						<button id="flow-hidden-btn">overflow: hidden;</button>
+						<button id="flow-visible-btn">overflow: visible;</button>
+						<script>
+							document.querySelector('#flow-auto-btn').addEventListener('click', function() {
+								document.querySelector('#flow-container').style.overflow = 'auto';
+							});
+							document.querySelector('#flow-hidden-btn').addEventListener('click', function() {
+								document.querySelector('#flow-container').style.overflow = 'hidden';
+							});
+							document.querySelector('#flow-visible-btn').addEventListener('click', function() {
+								document.querySelector('#flow-container').style.overflow = 'visible';
+							});
+						</script>
+					</section>
+					<section>
+						<h3>Change Default Layout</h3>
+						<p>by <code class="css">display</code> property</p>
+						<ul>
+							<li>inline</li>
+							<li>block</li>
+							<li>inline-block</li>
+						</ul>
+					</section>
 				</section>
 				<!-- End of Box Model -->
+
+				<!-- CSS Layout -->
+				<section>
+				</section>
+				<!-- End of CSS Layout -->
 			</div>
 		</div>
 
