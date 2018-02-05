@@ -501,6 +501,114 @@ clear: both;</code></pre>
 					</section>
 				</section>
 				<!-- End of CSS Layout -->
+
+				<!-- Flexbox -->
+				<section>
+					<section>
+						<h2>Flexbox</h2>
+					</section>
+					<section>
+						<h3>The world without flexbox</h3>
+						<ul>
+							<li>float</li>
+							<li>positioning</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Rethink of layout</h3>
+					</section>
+					<section>
+						<h4>Put element on webpage one by one</h4>
+						<div style="background: #3f3f3f;padding: 10px; height: 400px;">
+							<div style="width:100%; overflow: hidden;">
+								<div class="fragment" style="float: left; width:40%; border: 1px solid #0af; padding: 10px;">
+									Element
+								</div>
+								<div class="fragment" style="margin-left: 10px; float: left; width:40%; border: 1px dashed #0af; padding: 10px;">
+									Here ?
+								</div>
+							</div>
+							<div class="fragment" style="margin-top: 10px; width:40%;border: 1px dashed #0af; padding: 10px;">
+								Or Here ?
+							</div>
+						</div>
+						<pre style="font-size: 16px; text-align: left;"><code class="hljs">
+&lt;element&gt;Element&lt;/element&gt;&lt;element&gt;Next&lt;/element&gt;
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>But How?</h3>
+						<ul>
+							<li>Where ?</li>
+							<li>The order ?</li>
+							<li>The direction ?</li>
+							<li>The children size ?</li>
+							<li>Alignment ?</li>
+							<li>Overflow ?</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Use flex in your container</h3>
+						<pre><code class="css">display: flex; /* for container element */</code></pre>
+						<a href="https://codepen.io/bhou/pen/OQXXXe" target="_blank">Try it</a>
+					</section>
+					
+					<section>
+						<h3>Change the children order</h3>
+						<pre><code class="css">order: 1; /* by default: 0, for child element */</code></pre>
+						<a href="https://codepen.io/bhou/pen/PQzzmr" target="_blank">Try it</a>
+					</section>
+					
+					<section>
+						<h3>Change the render direction</h3>
+						<pre><code class="css">flex-direction: column; /* by default: row, for container element*/</code></pre>
+						<a href="https://codepen.io/bhou/pen/qxNNYM" target="_blank">Try it</a>
+					</section>
+
+					<section>
+						<h3>Change the children size</h3>
+						<pre><code class="css">flex: 2; /* for child element */ </code></pre>
+						<a href="https://codepen.io/bhou/pen/QQEpGq" target="_blank">Try it</a>
+					</section>
+
+					<section>
+						<h3>Put children into multiple lines</h3>
+						<pre><code class="css">flex-wrap: wrap; /* for container element */</code></pre>
+						<a href="https://codepen.io/bhou/pen/VQjpWY" target="_blank">Try it</a>
+					</section>
+
+					<section>
+						<h3>Alignment</h3>
+						<pre><code class="css">.container {
+	justify-content: flex-start; /* main axis */
+	align-items: center; /* cross axis */
+	align-content: stretch; /* cross axis */
+}
+.item {
+	align-self: flex-start;
+}</code></pre>
+					<a href="https://codepen.io/bhou/pen/PQzpxj" target="_blank">Try it</a>
+					</section>
+
+					<section>
+						<h3>Nested Flex Layout</h3>
+					</section>
+
+					<section>
+						<h3>Useful resource</h3>
+						<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">A Complete Guide to Flex</a>
+					</section>
+
+				</section>
+				<!-- End of Flexbox -->
+
+				<!--
+				<section data-background="img/web-training/training02/cong.gif">
+					<h3 style="position: fixed; bottom: 20px; color: #e7ad52;">Congratulations! You made it!</h3>
+				</section>
+				-->
 			</div>
 		</div>
 
