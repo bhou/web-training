@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Development Training</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+		pre {
+			tab-size: 2;
+			-moz-tab-size:2;
+		}
+
+		text {
+			fill: #e7ad52;
+		}
+
+		rect {
+			stroke: #e7ad52;
+			fill-opacity: 0;
+		}
+
+		line {
+			stroke: #e7ad52;
+		}
+
+		marker {
+			fill: #e7ad52;
+		}
+
+		.signal text {
+			fill: #e7ad52;
+		}
+
+		.signal text:hover {
+			fill: #e7ad52;
+		}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /p target="_blank"rint-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>HTTP & Cookie</h2>
+					<p>
+						<small>By <a href="bo.hou@dailymotion.com">Bo HOU</a> ( <a href="bo.hou@dailymotion.com">bo.hou@dailymotion.com</a> )</small>
+					</p>
+				</section>
+
+				<!-- HTTP -->
+				<section>
+					<section><h2>HTTP</h2></section>
+					<section>
+						<h3>What is HTTP</h3>
+						<p>Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents, such as HTML.</p>
+					</section>
+					<section>
+						<h3>WebPage Hosting & Serving</h3>
+						<img style="height:500px; background:none; border:none; box-shadow:none;" src="img/web-training/webpage_hosting.svg"/>
+					</section>
+					<section>
+						<h3>Application-layer protocol</h3>
+						<p>think about newspaper subscription with letters</p>
+					</section>
+					<section>
+						<h3>ISO 7 Layers Model</h3>
+						<ul>
+							<li>Layer 7: Application</li>
+							<li>Layer 6: Presentation</li>
+							<li>Layer 5: Session</li>
+							<li>Layer 4: Transport</li>
+							<li>Layer 3: Network</li>
+							<li>Layer 2: Data Link</li>
+							<li>Layer 1: Physical</li>
+						</ul>
+					</section>
+					<section>
+						<h3>TCP/IP 4 Layers Model</h3>
+						<ul>
+							<li>Layer 4: Application (ISO 5, 6, 7)</li>
+							<li>Layer 3: Transport (ISO 4)</li>
+							<li>Layer 2: Internet (ISO 3)</li>
+							<li>Layer 1: Link (ISO 1, 2)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Client / Server Model</h3>
+						<script class="sequence-diagram" type="text/template" data-config-useFragments="false" data-config-theme="simple">
+							User Agent->>Server: 1st HTTP Request
+							Server-->>User Agent: HTTP Response for the 1st request
+
+							User Agent->>Server: 2nd HTTP Request
+							Server-->>User Agent: HTTP Response for the 2nd requset
+
+							User Agent->>Server: 3rd HTTP Request
+							Server-->>User Agent: HTTP Response for the 3rd request
+						</script>	
+					</section>
+					<section>
+						<h3>Proxy</h3>
+						<script class="sequence-diagram" type="text/template" data-config-useFragments="false" data-config-theme="simple">
+							User Agent->Proxy 1: http request
+							Proxy 1->Proxy 2: http request
+							Proxy 2->Web Server: http request
+							Web Server-->>Proxy 2: http response
+							Proxy 2-->>Proxy 1: http response
+							Proxy 1-->>User Agent: http response
+						</script>
+					</section>
+					<section>
+						<h3>HTTP is stateless</h3>
+						<script class="sequence-diagram" type="text/template" data-config-useFragments="false" data-config-theme="simple">
+							User Agent 1->>Server: request
+							User Agent 1->>Server: request
+
+							Note right of Server: Server sees no difference \n from these requests 
+
+							Server-->>User Agent 1: response 
+							Server-->>User Agent 1: response 
+
+							User Agent 2->>Server: request
+							Server-->>User Agent 2: response
+						</script>
+						<p style="font-size: 16px;">At protocol level, it doesn't keep any state about any request.</p>
+					</section>
+					<section>
+						<h3>HTTP Flow Simplified</h3>
+						<script class="sequence-diagram" type="text/template" data-config-useFragments="false" data-config-theme="simple">
+							User Agent-->>Web Server: Establish TCP Connection
+							User Agent->Web Server: Send HTTP Message through TCP Connection
+							Web Server->User Agent: Send HTTP Response Message through TCP Connection
+							User Agent-->>Web Server: Close Connection 
+						</script>
+					</section>
+
+					<section>
+						<h3>HTTP Messages (Request)</h3>
+						<pre style="font-size: 16px;"><code>POST /cdn/manifest/video/xfwh1ww.m3u8?auth=82j0d7jg88v&bs=1 HTTP/1.1
+Host: www.dailymotion.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) 
+Accept: */*
+Referer: http://www.dailymotion.com/fr
+Accept-Language: en-US,en;q=0.8,fr;q=0.6,zh-CN;q=0.4,zh;q=0.2
+Cookie: clsu=1; dmvk=598d6e33898ba; _csrf/link=xIDa5x1xXg_ztO_bx3aiPV54ORnJNVdhEZP0s; 
+
+{
+	"name": "your request content"
+}
+</code></pre>
+					</section>
+					<section>
+						<h3>HTTP Messages (Response)</h3>
+						<pre style="font-size: 16px;"><code>HTTP/1.1 302 Found
+Cache-Control: private
+Content-Type: text/html; charset=UTF-8
+Referrer-Policy: no-referrer
+Location: http://www.google.fr/?gfe_rd=cr&dcr=0&ei=KD-LWqHhNqb_8AeC7YuoDg
+Content-Length: 268
+Date: Mon, 19 Feb 2018 21:18:32 GMT
+
+&lt;HTML&gt;&lt;HEAD&gt;&lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
+&lt;TITLE&gt;302 Moved&lt;/TITLE&gt;&lt;/HEAD&gt;&lt;BODY&gt;
+&lt;H1&gt;302 Moved&lt;/H1&gt;
+The document has moved
+&lt;A HREF="http://www.google.fr/"&gt;here&lt;/A&gt;.
+&lt;/BODY&gt;&lt;/HTML&gt;
+</code></pre>
+					</section>
+				</section>
+				<!-- End of HTTP -->
+				
+				<!-- Cookie  -->
+				<section>
+					<section>
+						<h2>Cookie</h2>
+					</section>
+				</section>
+				<!-- End of Cookie -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 960,
+				height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				// margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				// minScale: 0.2,
+				// maxScale: 1.5
+
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				sequencediagrams: {
+					theme: "simple",
+					useFragments: true,
+					initialize: (function(diagramContainer){
+						console.log("Diagram rendered!");
+					})
+			 },
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/sequence-diagrams/webfont.js' },
+					{ src: 'plugin/sequence-diagrams/snap.svg-min.js' },
+					{ src: 'plugin/sequence-diagrams/underscore-min.js' },
+					{ src: 'plugin/sequence-diagrams/sequence-diagram-min.js' },
+					{ src: 'plugin/sequence-diagrams/sequence-diagrams-plugin-modified.js' },
+				]
+			});
+
+
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			/*
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			*/
+		</script>
+	</body>
+</html>
