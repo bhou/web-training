@@ -182,16 +182,268 @@ The document has moved
 &lt;/BODY&gt;&lt;/HTML&gt;
 </code></pre>
 					</section>
+
+					<section>
+						<h3>HTTP request methods</h3>
+						<ul>
+							<li>GET: retrieve data</li>
+							<li>HEAD: retrieve data without response body</li>
+							<li>POST: submit change to resource</li>
+							<li>PUT: replace resource</li>
+							<li>DELETE: delete resource</li>
+							<li>CONNECT: establish connection</li>
+							<li>OPTIONS: describe communication options</li>
+							<li>PATCH: partial resource modification</li>
+						</ul>
+					</section>
+					<section>
+						<h3>URL</h3>
+						<p style="font-size: 0.8em;"><span style="color:#FF595E;">http</span>://<span style="color:#FFCA3A;">www.dailymotion.com</span>:<span style="color:#8AC926;">80</span><span style="color:#1982C4;">/video/123</span><span style="color:#52B7AB;">?auth=XXXX&ps=1</span></p>
+						<ul style="font-size: 0.8em;">
+							<li><span style="color:#FF595E;">http</span>: protocol</li>
+							<li><span style="color:#FFCA3A;">www.dailymotion.com</span>: domain</li>
+							<li><span style="color:#8AC926;">80</span>: port</li>
+							<li><span style="color:#1982C4;">/video/123</span>: path</li>
+							<li><span style="color:#52B7AB;">?auth=XXXX&ps=1</span>: parameters</li>
+						</ul>
+					</section>
 				</section>
 				<!-- End of HTTP -->
 				
 				<!-- Cookie  -->
 				<section>
+					<section data-background="img/web-training/training05/cookie.jpg">
+						<h2 style="position: fixed; bottom: 20px; width: 300px; margin: auto;">Cookie</h2>
+					</section>
 					<section>
-						<h2>Cookie</h2>
+						<h3>What is Cookie?</h3>
+						<p>An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to the user's web browser. The browser may store it and send it back with the next request to the same server.</p>
+						<p class="fragment">Remember: HTTP is stateless</p>
+					</section>
+					<section>
+						<img style="height:500px; background:none; border:none; box-shadow:none;" src="img/web-training/training05/set-cookie.svg"/>
+					</section>
+					<section>
+						<h3>Set-Cookie HTTP Header</h3>
+						<pre style="font-size:14px;"><code>Set-Cookie: id=a3fWa; Domain=dailymotion.com Path=/video Expires=Wed, 21 Oct 2015 07:28:00 GMT;</code></pre>
+						<ul style="font-size:16px;">
+							<li>Cookie Name=Cookie Value;</li>
+							<li>Expires</li>
+							<li>Domain</li>
+							<li>Path</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Cookie Scope</h3>
+						<p>User Agent send cookie with request only when:</p>
+						<ol>
+							<li>URL domain or subdomain match Domain, <span style="color:red;">AND</span></li>
+							<li>URL path prefix with Path</li>
+						</ol>
+					</section>
+					<section>
+						<h3>Cookie Scope Example</h3>
+						<pre style="font-size:14px;"><code>Set-Cookie: id=a3fWa; Domain=www.dailymotion.com Path=/video Expires=Wed, 21 Oct 2015 07:28:00 GMT;</code></pre>
+						<div style="font-size: 18px;">
+							<p style="color: red;">http://dailymotion.com/video/123</p>
+							<p style="color: red;">http://www.dailymotion.com/blog/123</p>
+							<p style="color: green;">http://www.dailymotion.com/video/123</p>
+							<p style="color: green;">http://hello.www.dailymotion.com/video/123</p>
+						</div>
+					</section>
+					<section>
+						<h3>Security</h3>
+						<h5>demo: do evil things with cookie</h5>
+					</section>
+					<section>
+						<a href="http://mybank.com/api/pay?amount=10000">You Just Won 1000 Euros!</a>
+					</section>
+					<section>
+						<h3>What about an image?</h3>
+						<img src="http://mybank.com/api/pay?amount=10000">
+						<pre><code>&lt;img src="http://mybank.com/api/pay?amount=10000"&gt;</code></pre>
+					</section>
+					<section>
+						<a id="trick-btn" href="http://web-training.com/win1000euros">You Win 1000 Euros Again!</a>
+						<pre><code>var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://mybank.com/api/pay?amount=10000', true);
+xhr.onload = function () {
+	console.log('done')
+};
+xhr.send(null);</code></pre>
+						<script>
+							document.querySelector('#trick-btn').addEventListener('click', function(e){
+								e.preventDefault()
+								var xhr = new XMLHttpRequest();
+								xhr.open('GET', 'http://mybank.com/api/pay?amount=10000', true);
+								xhr.onload = function () {
+									console.log('done')
+								};
+								xhr.send(null);
+							})
+						</script>
 					</section>
 				</section>
 				<!-- End of Cookie -->
+
+				<!-- CORS -->
+				<section>
+					<section>
+						<h3>Cross-Origin Resource Sharing (CORS)</h3>
+					</section>
+					<section>
+						<p>CORS is a mechanism that uses additional HTTP headers to let a user agent gain permission to access selected resources from a server on a different origin (domain) than the site currently in use.</p>
+					</section>
+					<section>
+						<h3>Scope</h3>
+						<ul>
+							<li>Javascript HTTP request</li>
+							<li>Web Fonts</li>
+							<li>WebGL</li>
+							<li>Image/Video</li>
+							<li>Stylesheets</li>
+						</ul>
+					</section>
+					<section>
+						<h3>CORS covers 3 scenarios</h3>
+						<ul>
+							<li>Additional headers for read requests</li>
+							<li>Preflight for requests cause side-effects on server</li>
+							<li>Nofity whether credentials (ex. cookies) should be sent with request</li>
+						</ul>
+						<p class="fragment">Note: all of above require server side support</p>
+					</section>
+					<section>
+						<h3>Additional headers for read</h3>
+						<p>When to apply (all of following)</p>
+						<ul style="font-size: 0.5em;">
+							<li>GET, HEAD, and POST methods</li>
+							<li>With Headers set automatically by user agent</li>
+							<li>With Content-Type header:
+								<ul>
+									<li>application/x-www-form-urlencoded</li>
+									<li>multipart/form-data</li>
+									<li>text/plain</li>
+								</ul>
+							</li>
+							<li>No upload</li>
+							<li>No ReadableStream</li>
+						</ul>
+						<p>Action</p>
+						<div style="font-size: 0.5em;">
+							<p style="text-align: left; padding-left: 200px;"><span style="display: inline-block; width: 250px;">Request:</span> <span style="color: #FF595E;">Origin</span> header</p>
+							<p style="text-align: left; padding-left: 200px;"><span style="display: inline-block; width: 250px;">Response:</span> <span style="color: #FFCA3A;">Access-Control-Allow-Origin</span> header</p>
+						</div>
+					</section>
+					<section>
+						<img style="height:350px; background:none; border:none; box-shadow:none;" src="img/web-training/training05/simple-cors.svg"/>
+						<p style="font-size: 0.5em;">The request reaches server side, and data is return to browser, but can't obtained from javascript</p>
+						<p style="font-size: 0.5em;">Cookie does not sent by CORS request in this situation</p>
+					</section>
+
+					<section>
+						<a id="read-cors-btn" href="http://web-training.com/">Access-Control-Allow-Origin: http://mybank.com</a>
+						<br>
+						<br>
+						<a id="read-cors-allowed-btn" href="http://web-training.com/">Access-Control-Allow-Origin: *</a>
+						<script>
+							document.querySelector('#read-cors-btn').addEventListener('click', function(e){
+								e.preventDefault()
+								var xhr = new XMLHttpRequest();
+								xhr.open('GET', 'http://mybank.com/test/simple/cors/notallowed', true);
+								xhr.onreadystatechange = function () {
+									//return window.location.href = '#';
+									if (xhr.readyState === 4) {
+										alert(xhr.response)
+										console.log('next line is server returned data')
+										console.log(xhr.response); //Outputs a DOMString by default
+							    }
+								};
+								xhr.send(null);
+							})
+							document.querySelector('#read-cors-allowed-btn').addEventListener('click', function(e){
+								e.preventDefault()
+								var xhr = new XMLHttpRequest();
+								xhr.open('GET', 'http://mybank.com/test/simple/cors/allowed', true);
+								xhr.onreadystatechange = function () {
+									//return window.location.href = '#';
+									if (xhr.readyState === 4) {
+										alert(xhr.response)
+										console.log('next line is server returned data')
+										console.log(xhr.response); //Outputs a DOMString by default
+							    }
+								};
+								xhr.send(null);
+							})
+						</script>
+					</section>
+
+					<section>
+						<h3>Preflight Requests</h3>
+					</section>
+					<section>
+						<p>When to apply (any of following)</p>
+						<ul style="font-size: 0.5em;">
+							<li>PUT, DELETE, CONNECT, OPTIONS, PATCH methods</li>
+							<li>With Headers not set automatically by user agent</li>
+							<li>With Content-Type header other than following:
+								<ul>
+									<li>application/x-www-form-urlencoded</li>
+									<li>multipart/form-data</li>
+									<li>text/plain</li>
+								</ul>
+							</li>
+							<li>With upload</li>
+							<li>With ReadableStream</li>
+						</ul>
+						<p>Action</p>
+						<div style="font-size: 0.5em;">
+							<p style="text-align: left; padding-left: 200px;"><span style="display: inline-block; width: 250px;">Request:</span> <span style="color: #FF595E;">OPTIONS</span> request before the real request</p>
+							<p style="text-align: left; padding-left: 200px;"><span style="display: inline-block; width: 250px;">Response:</span> <span style="color: #FFCA3A;">Access-Control-Allow-Origin, Access-Control-Allow-Methods</span> header</p>
+						</div>
+					</section>
+					<section>
+						<img style="height:400px; background:none; border:none; box-shadow:none;" src="img/web-training/training05/preflight.svg"/>
+					</section>
+					<section>
+						<p>In general, browser sends OPTIONS request with additional information to the server to request permission. Server returns the permission response to guide the browser send the real request or stop the request</p>
+					</section>
+					<section>
+						<a id="preflight-btn" href="http://web-training.com/win1000euros">You Win 1000 Euros Again!</a>
+						<pre><code>var xhr = new XMLHttpRequest();
+xhr.open('PUT', 'http://mybank.com/api/pay?amount=10000', true);
+xhr.onload = function () {
+	console.log('done')
+};
+xhr.send(null);</code></pre>
+						<script>
+							document.querySelector('#preflight-btn').addEventListener('click', function(e){
+								e.preventDefault()
+								var xhr = new XMLHttpRequest();
+								xhr.open('PUT', 'http://mybank.com/api/pay?amount=10000', true);
+								xhr.onload = function () {
+									console.log('done')
+								};
+								xhr.send(null);
+							})
+						</script>
+					</section>
+
+					<section>
+						<h3>Requests with credentials</h3>
+					</section>
+					<section>
+						<p>By default, browser does not send credentials (ex. cookies) with cross domain request.</p>
+					</section>
+					<section>
+						<p>However, you can force browser add credentials in javascript</p>
+						<pre><code>request.withCredentials = true</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">If response does not contain <span style="color:#FF595E;">Access-Control-Allow-Credentials: true</span> header, the response can't be accesible from javascript</p>
+					</section>
+				</section>
+				<!-- End of CORS -->
 			</div>
 		</div>
 

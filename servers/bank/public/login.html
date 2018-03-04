@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bo's Bank Account</title>
+	<link rel="stylesheet" href="./css/login.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<div class="logo">Bo's Bank Account</div>
+	</header>
+	<main>
+		<form>
+			<fieldset>
+				<label for="username">Username</label>
+				<input type="text" name="username">
+			</fieldset>
+			<fieldset>
+				<label for="password">Password</label>
+				<input type="password" name="password">
+			</fieldset>
+			<div class="form-controller">
+				<button type="submit" id="login-btn">Login</button>
+				<a href="">Forget Password?</a>
+			</div>
+		</form>
+	</main>
+	<footer>
+		<div>2018 Bo's Bank</div>
+	</footer>
+	<script>
+		var loginBtn = document.querySelector('button#login-btn')
+		loginBtn.addEventListener('click', function(event) {
+			event.preventDefault()
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '/api/login', true);
+			xhr.onload = function () {
+				return window.location.href = '/';
+			};
+			xhr.send(null);
+		})
+	</script>
+</body>
+</html>

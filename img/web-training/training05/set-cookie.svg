@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink" class="sequence simple" width="477.6000061035156px" height="294px">
+  <desc></desc>
+  <style>
+  pre {  tab-size: 2;  -moz-tab-size:2;
+  }
+
+  text {  fill: #e7ad52;
+  }
+
+  rect {  stroke: #e7ad52;  fill-opacity: 0;
+  }
+
+  line {  stroke: #e7ad52;
+  }
+
+  marker {  fill: #e7ad52;
+  }
+
+  .signal text {  fill: #e7ad52;
+  }
+
+  .signal text:hover {  fill: #e7ad52;
+  }
+  </style>
+  <defs>
+    <marker viewBox="0 0 5 5" markerWidth="5" markerHeight="5" orient="auto" refX="5" refY="2.5" id="markerArrowBlock">
+      <path d="M 0 0 L 5 2.5 L 0 5 z"></path>
+    </marker>
+    <marker viewBox="0 0 9.6 16" markerWidth="4" markerHeight="16" orient="auto" refX="9.6" refY="8" id="markerArrowOpen">
+      <path d="M 9.6,8 1.92,16 0,13.7 5.76,8 0,2.286 1.92,0 9.6,8 z"></path>
+    </marker>
+  </defs>
+  <g class="title"></g>
+  <g class="actor">
+    <rect x="10" y="20" width="118" height="39" style="stroke-width: 2;" stroke="#000000" fill="#ffffff"></rect>
+    <text x="21" y="45" style="font-size: 16px; font-family: Andale\ Mono, monospace;">
+      <tspan x="20">User Agent</tspan>
+    </text>
+  </g>
+  <g class="actor">
+    <rect x="10" y="235" width="118" height="39" style="stroke-width: 2;" stroke="#000000" fill="#ffffff"></rect>
+    <text x="21" y="260" style="font-size: 16px; font-family: Andale\ Mono, monospace;">
+      <tspan x="20">User Agent</tspan>
+    </text>
+  </g>
+  <line x1="69" x2="69" y1="59" y2="235" style="stroke-width: 2;" stroke="#000000" fill="none"></line>
+  <g class="actor">
+    <rect x="329.6000061035156" y="20" width="118" height="39" style="stroke-width: 2;" stroke="#000000" fill="#ffffff"></rect>
+    <text x="340.6000061035156" y="45" style="font-size: 16px; font-family: Andale\ Mono, monospace;">
+      <tspan x="339.6000061035156">Web Server</tspan>
+    </text>
+  </g>
+  <g class="actor">
+    <rect x="329.6000061035156" y="235" width="118" height="39" style="stroke-width: 2;" stroke="#000000" fill="#ffffff"></rect>
+    <text x="340.6000061035156" y="260" style="font-size: 16px; font-family: Andale\ Mono, monospace;">
+      <tspan x="339.6000061035156">Web Server</tspan>
+    </text>
+  </g>
+  <line x1="388.6000061035156" x2="388.6000061035156" y1="59" y2="235" style="stroke-width: 2;" stroke="#000000" fill="none"></line>
+  <g class="signal">
+    <text x="195.20000457763672" y="89.5" style="font-size: 16px; font-family: Andale\ Mono, monospace;">
+      <tspan x="194.20000457763672">Request</tspan>
+    </text>
+    <line x1="69" x2="388.6000061035156" y1="98" y2="98" style="stroke-width: 2; marker-end: url(&quot;#markerArrowBlock&quot;);" stroke="#000000" fill="none"></line>
+  </g>
+  <g class="signal">
+    <text x="80" y="128.5" style="font-size: 16px; font-family: Andale\ Mono, monospace;">
+      <tspan x="79">Response with Set-Cookie Header</tspan>
+    </text>
+    <line x1="388.6000061035156" x2="69" y1="137" y2="137" style="stroke-width: 2; stroke-dasharray: 6, 2; marker-end: url(&quot;#markerArrowOpen&quot;);" stroke="#000000" fill="none"></line>
+  </g>
+  <g class="signal">
+    <text x="95" y="171.5" style="font-size: 16px; font-family: Andale\ Mono, monospace;">
+      <tspan x="94">Set Cookie on User Agent</tspan>
+    </text>
+    <line x1="69" x2="89" y1="157" y2="157" style="stroke-width: 2;" stroke="#000000" fill="none"></line>
+    <line x1="89" x2="89" y1="157" y2="181" style="stroke-width: 2;" stroke="#000000" fill="none"></line>
+    <line x1="89" x2="69" y1="181" y2="181" style="stroke-width: 2; marker-end: url(&quot;#markerArrowBlock&quot;);" stroke="#000000" fill="none"></line>
+  </g>
+  <g class="signal">
+    <text x="137.60000610351562" y="206.5" style="font-size: 16px; font-family: Andale\ Mono, monospace;">
+      <tspan x="136.60000610351562">Request With Cookie</tspan>
+    </text>
+    <line x1="69" x2="388.6000061035156" y1="215" y2="215" style="stroke-width: 2; marker-end: url(&quot;#markerArrowOpen&quot;);" stroke="#000000" fill="none"></line>
+  </g>
+</svg>

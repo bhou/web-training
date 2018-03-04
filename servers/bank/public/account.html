@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bo's Bank Account</title>
+	<link rel="stylesheet" href="./css/login.css">
+	<link rel="stylesheet" href="./css/account.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<div class="logo">Bo's Bank Account</div>
+		<div id="header-logout"><a>Logout</a></div>
+	</header>
+	<main>
+		<div class="account">
+			<div class="total">You have: <span>__TOTAL__</span> €</div>	
+			<div class="account-pay">
+				<button amount="10">Pay 10 €</button>
+				<button amount="100">Pay 100 €</button>
+				<button amount="500">Pay 500 €</button>
+				<button amount="1000">Pay 1000 €</button>
+			</div>	
+		</div>
+	</main>
+	<footer>
+		<div>2018 Bo's Bank</div>
+	</footer>
+	<script>
+		var logoutBtn = document.querySelector('#header-logout a')
+		logoutBtn.addEventListener('click', function(event) {
+			event.preventDefault()
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '/api/logout', true);
+			xhr.onload = function () {
+				return window.location.href = '/';
+			};
+			xhr.send(null);
+		})
+		var payBtns = document.querySelectorAll('.account-pay > button')
+		payBtns.forEach(function(btn) {
+			const amount = btn.getAttribute('amount')
+			btn.addEventListener('click', function(event) {
+				event.preventDefault()
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', '/api/pay?amount=' + amount, true);
+				xhr.onload = function () {
+					return window.location.href = '/';
+				};
+				xhr.send(null);
+			})
+		})
+	</script>
+</body>
+</html>

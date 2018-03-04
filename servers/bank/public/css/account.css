@@ -1,0 +1,42 @@
+.account {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	top: 150px;
+	width: 100%;
+}
+
+.total {
+	background-color: #f4f5f6;
+	border: 1px solid #bbb;
+	font-size: 3rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	top: 150px;
+	width: 50%;
+}
+
+.total span {
+	font-size: 5rem;
+}
+
+.account-pay {
+	display: flex;
+	font-size: 1rem;
+	justify-content: space-between;
+	padding: 20px 0 10px 0;
+	margin-left: auto;
+	margin-right: auto;
+
+	width: 50%
+}
+
+.account-pay button {
+	width: 150px;
+}
+
+#header-logout {
+	margin: 10px;
+}
