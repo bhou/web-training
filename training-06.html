@@ -1,0 +1,658 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Development Training</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+		pre {
+			tab-size: 2;
+			-moz-tab-size:2;
+		}
+
+		text {
+			fill: #e7ad52;
+		}
+
+		rect {
+			stroke: #e7ad52;
+			fill-opacity: 0;
+		}
+
+		line {
+			stroke: #e7ad52;
+		}
+
+		marker {
+			fill: #e7ad52;
+		}
+
+		.signal text {
+			fill: #e7ad52;
+		}
+
+		.signal text:hover {
+			fill: #e7ad52;
+		}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /p target="_blank"rint-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Javascript Basics</h2>
+					<p>
+						<small>By <a href="bo.hou@dailymotion.com">Bo HOU</a> ( <a href="bo.hou@dailymotion.com">bo.hou@dailymotion.com</a> )</small>
+					</p>
+				</section>
+
+				<!-- Programming -->
+				<section>
+					<section>
+						<h3>Programming</h3>
+					</section>
+					<section>
+						<h4>It answers two questions:</h4>
+						<ul>
+							<li>How to describe data? (Data structure)</li>
+							<li>How to operate data? (Instruction)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Von Neumann Architecture</h3>
+						<img style="height:500px; background-color: #FFF; border:none; box-shadow:none;" src="img/web-training/training06/computer_system_bus.svg"/>
+					</section>
+					<section>
+						<h3>Von Neumann Architecture</h3>
+						<ul>
+							<li>CPU: execute instructions</li>
+							<li>Memory: store data & intructions</li>
+							<li>I/O: take instruction to operate external devices</li>
+							<li>Bus: communicate among CPU, Memory, and I/O</li>
+						</ul>
+						<p>Everything is accessed by address</p>
+					</section>
+					<section>
+						<h3>Hello World! AdOps</h3>
+						<pre style="width: 700px;"><code>console.log('Hello World!' + 'AdOps')</code></pre>
+						<p style="font-size: 0.6em;">Memory Example</p>
+						<div style="font-size: 0.5em;">
+							<table>
+								<thead><th>Address<th><th>Memory Content</th></thead>
+								<tbody>
+								<tr><td style="text-align: right;">001<td><td>Get data from address 101, put it in Register A</td></tr>
+								<tr><td style="text-align: right;">002<td><td>Get data from address 103, put it in Register B</td></tr>
+								<tr><td style="text-align: right;">003<td><td>Concatenate data in register A and B, and put it in Register C</td></tr>
+								<tr><td style="text-align: right;">004<td><td>Push data in Register C to address 102</td></tr>
+								<tr><td style="text-align: right;"><td><td>. . .</td></tr>
+								<tr><td style="text-align: right;">101<td><td>[String] Hello World!</td></tr>
+								<tr><td style="text-align: right;">102<td><td>[Device] Screen Device</td></tr>
+								<tr><td style="text-align: right;">103<td><td>[String] AdOps</td></tr>
+								<tr><td style="text-align: right;"><td><td>. . .</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<p class="fragment" style="font-size: 0.7em;">Machine code & Assembly</p>
+					</section>
+					<section>
+						<h3>Machine code & Assembly</h3>
+						<ul>
+							<li>Understand the architecture</li>
+							<li>Maintain your data structure in memory</li>
+							<li>Understand CPU instructions (ARM & x86)</li>
+							<li>Control instruction flow in memory</li>
+							<li>Understand each I/O device</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Minimal things to be learned</h4>
+						<ul>
+							<li>Data structure</li>
+							<li>Instruction flow
+								<ul>
+									<li>Condition</li>
+									<li>Loop</li>
+								</ul>
+							</li>
+							<li>Reuse the flow
+								<ul>
+									<li>Function</li>
+									<li>Module</li>
+								</ul>
+							</li>
+							<li>Error Handling</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Compiled vs. Interpreted</h3>
+						<img style="height:350px; background-color: #FFF; border:none; box-shadow:none; padding: 10px;" src="img/web-training/training06/compiled_vs_interpreted.png"/>
+					</section>
+					<section>
+						<h3>programming paradigms</h3>
+						<ul>
+							<li>Imperative</li>
+							<li>Functional</li>
+							<li>Declarative</li>
+							<li>Object-Oriented</li>
+							<li>Procedural</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Declarative Programming</h3>
+						<blockquote>Expresses the logic of a computation without describing its control flow</blockquote>
+						<div class="fragment">
+							<p>Ex. <span style="color:#FF595E;">HTML</span></p>
+							<pre><code>&lt;a href="./hello.html?name=adops"&gt;Hello World! Adops&lt;/a&gt;</code></pre>
+							<a href="">Hello World! Adops</a>
+						</div>
+					</section>
+					<section>
+						<h3>Imperative Programming</h3>
+						<blockquote>Uses statements that change a program's state.</blockquote>
+						<pre><code>Define Greeting as "Hello World!"
+
+Greeting = Greeting + "Adops"
+
+Print Greeting
+
+Add Underline to Greeting
+
+If Click on Greeting
+then Switch to page ./hello.html?name=Adops
+</code></pre>
+					</section>
+					<section>
+						<h3>Object-Oriented Programming</h3>
+						<blockquote>based on the concept of "objects", which contains the data and the functions to operate the data.</blockquote>
+						<pre><code>Object Greeting {
+	URL string 
+	Name string
+}
+
+greeting = new Greeting(Name = "AdOps", URL = "./hello.html")
+greeting.Show()
+greeting.Click()
+</code></pre>
+					</section>
+				</section>
+				<!-- End of Programming -->
+
+				<!-- Javascript -->
+				<section>
+					<section>
+						<h3>Javascript</h3>
+					</section>
+					<section>
+						<p>JavaScript (JS) is a lightweight, interpreted, programming language with first-class functions. Most well-known as the scripting language for Web pages, many non-browser environments also use it, such as node.js and Apache CouchDB. JS is a prototype-based, multi-paradigm, dynamic scripting language, supporting object-oriented, imperative, and declarative styles.</p>
+					</section>
+					<section>
+						<h3>Keywords . . .</h3>
+						<ul>
+							<li>Interpreted</li>
+							<li>Works on both frontend and backend</li>
+							<li>Multiple paradigm: imperative, declarative, and object-oriented</li>
+							<li>Dynamic Type</li>
+							<li>First-class function</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Javascript In Browser</h3>
+						<img style="height:350px; background-color: #FFF; border:none; box-shadow:none; padding: 10px;" src="img/web-training/training06/javascript_in_browser.png"/>
+					</section>
+					<section>
+						<h3>Javascript On Server</h3>
+						<img style="height:150px; background-color: #FFF; border:none; box-shadow:none; padding: 70px;" src="img/web-training/training06/javascript_web_server.png"/>
+					</section>
+				</section>
+				<!-- End of Javascript -->
+
+				<!-- Data structure -->
+				<section>
+					<section>
+						<h4>Minimal things to be learned</h4>
+						<ul>
+							<li style="color:#e7ad52;">Data structure</li>
+							<li>Instruction flow
+								<ul>
+									<li>Condition</li>
+									<li>Loop</li>
+								</ul>
+							</li>
+							<li>Reuse the flow
+								<ul>
+									<li>Function</li>
+									<li>Module</li>
+								</ul>
+							</li>
+							<li>Error Handling</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Declaration & Variable</h3>
+						<ul>
+							<li><span style="color:#e7ad52;">var</span> declares a variable</li>
+							<li><span style="color:#e7ad52;">let</span> declares a block-scoped local variable</li>
+							<li><span style="color:#e7ad52;">const</span> declares a block-scoped read-only constant</li>
+						</ul>
+						<p class="fragment">Dynamic Type: no need to define variable type</p>
+					</section>
+					<section>
+						<h3>Valid Variable Name</h3>
+						<blockquote>An Identifier is an Identifier Name that is not a Reserved Word.</blockquote>
+						<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar" target="_blank">Reserved Word</a>
+						<br>
+						<a href="https://codepen.io/bhou/pen/QQXELg" target="_blank">play</a>
+					</section>
+					<section>
+						<h3>Block</h3>
+						<pre><code>{
+	// this is a block
+}</code></pre>
+					</section>
+					<section>
+						<pre><code class="javascript">var greeting1 = 'Hello';
+{
+	let greeting2 = 'Bonjour';
+	console.log('in block greeting 2 is', greeting2);
+  greeting2 = "Bonjour!!!";
+  console.log('now greeting 2 changed to', greeting2);
+}
+const greeting3 = '你好';
+
+greeting1 = 'Hello World!'; // OK
+greeting3 = 'Hello World!'; // Not OK
+
+console.log('greeting 1 is', greeting1);
+console.log('greeting 3 is', greeting3);
+console.log('out block greeting 2 is', greeting2);
+</code></pre>
+					<a href="https://codepen.io/bhou/pen/ddByXy" target="_blank">play</a>
+					</section>
+					<section>
+						<h3>Data structure & Types</h3>
+					</section>
+					<section>
+						<h3>Primitives</h3>
+						<ul>
+							<li>boolean. true and false</li>
+							<li>null.</li>
+							<li>undefined</li>
+							<li>number. integer 123 or float 123.45</li>
+							<li>string. 'Hello' or "World"</li>
+							<li>symbol. (advanced, you can ignore it for now)</li>
+							<li>object.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Data Type Conversion</h3>
+						<pre><code class="javascript">var test = 100;
+test = '100'; // string 100 
+test = '100' + '0'; // string 1000 
+test = '100' - 10; // number 90
+test = '100' + 10; // stirng 10010
+
+var number = parseInt('100')
+var float = parseFloat('100')
+</code></pre>
+					</section>
+					<section>
+						<h3>Object</h3>
+						<pre><code class="javascript">var obj = {
+	name: 'Example Object',	
+	toString() {
+		return 'This is an example object';	
+  }
+}</code></pre>
+					</section>
+					<section>
+						<h3>Array & Map</h3>
+						<pre style="font-size: 0.5em;"><code class="javascript">var array = ['hello', 123.45, true, undefined, null];
+console.log(array[0]); // hello 
+console.log(array[1]); // 123.45
+console.log(array[2]); // true,
+console.log(array[3]); // undefined
+
+var map = {
+	"string_property": "hello",
+	"number_property": 123.45,
+	"boolean_property": true
+}
+console.log(map['string_property']); // hello
+console.log(map['number_property']); // 123.45
+console.log(map['boolean_property']); // true
+
+console.log(map.string_property); // hello
+</code></pre>
+					</section>
+					<section>
+						<pre style="font-size: 0.5em;"><code class="javascript">var course = {
+	students: [
+		{
+			name: 'John',
+			age: 17
+		},
+		{
+			name: 'Mike',
+			age: 18
+		}
+	],
+	teacher: {
+		name: 'Steve',
+		age: 40	
+  }
+}</code></pre>
+					<a href="https://codepen.io/bhou/pen/OQeNNe">play</a>
+					</section>
+					<section>
+						<h3>String</h3>
+						<pre><code class="js">var singleQuote = 'this is a "single" quote string'
+
+var doubleQuote = "this is a 'double' quote \"string\""
+
+var multipleline = `this is a multiple line string
+this is the second line
+another line, you can use quote "" or '' directly`
+
+var concat = 'string 1' + 'string 2'
+</code></pre>
+					</section>
+					<section>
+						<h3>Number</h3>
+						<pre><code class="js">var number = 100;
+number = number + 20; // 120;
+number += 20; // 140
+number /= 2; // 70;
+number++; // 71;
+number--; // 70;
+number *= 2; // 140;
+number -= 40; // 100;
+number %= 2; // 0; mod operator
+</code></pre>
+					</section>
+				</section>
+				<!-- End of Data structure -->
+
+				<!-- Control flow -->
+				<section>
+					<section>
+						<h4>Minimal things to be learned</h4>
+						<ul>
+							<li>Data structure</li>
+							<li style="color:#e7ad52;">Instruction flow
+								<ul>
+									<li>Condition</li>
+									<li>Loop</li>
+								</ul>
+							</li>
+							<li>Reuse the flow
+								<ul>
+									<li>Function</li>
+									<li>Module</li>
+								</ul>
+							</li>
+							<li>Error Handling</li>
+						</ul>
+					</section>
+					<section>
+						<h3>if ... else ...</h3>
+						<blockquote>If condition (true) then do something, otherwise do something else</blockquote>
+						<pre><code class="js">if (age &gt;= 18) {
+	console.log('Adult');
+} else {
+	console.log('Kid');
+}</code></pre>
+					</section>
+					<section>
+						<h3>if ... else if .. else</h3>
+						<pre><code class="js">if (name === 'John') {
+	console.log('John is playing');
+} else if (name === 'Mike') {
+	console.log('Mike is playing');
+} else if (name === 'Steve') {
+	console.log('Steve is playing');
+} else {
+	console.log('I don't know who is playing);
+}</code></pre>
+					</section>
+					<section>
+						<h3>Condition</h3>
+						<table style="font-size: 0.7em;">
+							<thead><th>Operator</th><th>Description</th></thead>
+							<tr><td>==</td><td>equal</td></tr>
+							<tr><td>!=</td><td>not equal</td></tr>
+							<tr><td>===</td><td>equal (no type conversion)</td></tr>
+							<tr><td>!==</td><td>not equal (no type conversion)</td></tr>
+							<tr><td>&lt;</td><td>less than</td></tr>
+							<tr><td>&gt;</td><td>greater than</td></tr>
+							<tr><td>&lt;=</td><td>less than or equal</td></tr>
+							<tr><td>&gt;=</td><td>greater than or equal</td></tr>
+						</table>
+					</section>
+					<section>
+						<h3>Condition</h3>
+						<table style="font-size: 1em;">
+							<thead><th>Operator</th><th>Description</th></thead>
+							<tr><td>&&</td><td>AND</td></tr>
+							<tr><td>||</td><td>OR</td></tr>
+							<tr><td>!</td><td>NOT</td></tr>
+						</table>
+						<p>Falsy</p>
+						<p style="color: #e7ad52;">null, undefined, NaN, "", 0</p>
+					</section>
+					<section>
+						<h3>Useful Code Snippet</h3>
+						<pre><code class="js">if (!variable) {
+	// the variable is null, or undefined, 
+  // or "", or 0, or NaN
+}</code></pre>
+					</section>
+					<section>
+						<h3>for loop</h3>
+						<blockquote style="font-size: 0.5em;">for ( [initialExpression]; [condition]; [incrementExpression] ) { ... }</blockquote>
+						<pre><code class="js">for (var i = 0; i &lt; 100; i++) {
+	console.log(i);
+}</code></pre>
+					</section>
+					<section>
+						<h3>break</h3>
+						<pre><code class="js">for (var i = 0; i &lt; 100; i++) {
+	if (i &gt; 10) {
+		break;
+	} 
+	console.log(i);
+}</code></pre>
+					</section>
+					<section>
+						<h3>continue</h3>
+						<pre><code class="js">for (var i = 0; i &lt; 100; i++) {
+	if (i &lt; 10) {
+		continue;
+	} 
+	console.log(i);
+}</code></pre>
+					</section>
+				</section>
+					
+				<!-- End of Control flow -->
+
+				<!-- Reuse the flow -->
+				<section>
+					<section>
+						<h4>Minimal things to be learned</h4>
+						<ul>
+							<li>Data structure</li>
+							<li>Instruction flow
+								<ul>
+									<li>Condition</li>
+									<li>Loop</li>
+								</ul>
+							</li>
+							<li style="color:#e7ad52;">Reuse the flow
+								<ul>
+									<li>Function</li>
+									<li>Module</li>
+								</ul>
+							</li>
+							<li>Error Handling</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Define a function</h3>
+						<pre><code class="js">function multiply(number1, number2) {
+	return number1 * number2
+}</code></pre>
+					</section>
+					<section>
+						<h3>Calling function</h3>
+						<pre><code class="js">function multiply(number1, number2) {
+	return number1 * number2
+}
+
+var result = multiply(12, 2); // 24
+</code></pre>
+
+					</section>
+					<section>
+						<h3>First-class function</h3>
+						<pre><code class="js">var multiply = function(a, b) {
+	return a * b;
+}
+console.log(multiply(12, 2));
+
+function printMultiply(a, b, func) {
+	console.log(func(a, b));
+}
+printMultiply(12, 2, multiply);
+</code></pre>
+					</section>
+				</section>
+				<!-- End of Reuse flow -->
+				
+				<!-- Error Handling -->
+				<section>
+					<section>
+						<h4>Minimal things to be learned</h4>
+						<ul>
+							<li>Data structure</li>
+							<li>Instruction flow
+								<ul>
+									<li>Condition</li>
+									<li>Loop</li>
+								</ul>
+							</li>
+							<li>Reuse the flow
+								<ul>
+									<li>Function</li>
+									<li>Module</li>
+								</ul>
+							</li>
+							<li style="color:#e7ad52;">Error Handling</li>
+						</ul>
+					</section>
+					<section>
+						<h3>throw</h3>
+						<p>Throw an exception when something went wrong.</p>
+						<pre><code>throw 'something did go well'</code></pre>
+						<p>You can throw any data type</p>
+					</section>
+					<section>
+						<h3>Handle Error / Exception</h3>
+						<pre><code>try {
+	// some code might throw exception
+	throw 'something went wrong'
+} catch (e) {
+	console.log(e);
+} finally {
+	console.log('No matter what, finally will be executed');
+}
+</code></pre>
+					</section>
+				</section>
+				<!-- End of Error Handling -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 960,
+				height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				// margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				// minScale: 0.2,
+				// maxScale: 1.5
+
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				sequencediagrams: {
+					theme: "simple",
+					useFragments: true,
+					initialize: (function(diagramContainer){
+						console.log("Diagram rendered!");
+					})
+			 },
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/sequence-diagrams/webfont.js' },
+					{ src: 'plugin/sequence-diagrams/snap.svg-min.js' },
+					{ src: 'plugin/sequence-diagrams/underscore-min.js' },
+					{ src: 'plugin/sequence-diagrams/sequence-diagram-min.js' },
+					{ src: 'plugin/sequence-diagrams/sequence-diagrams-plugin-modified.js' },
+				]
+			});
+
+
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			/*
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			*/
+		</script>
+	</body>
+</html>
