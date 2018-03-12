@@ -390,6 +390,105 @@ number %= 2; // 0; mod operator
 				</section>
 				<!-- End of Data structure -->
 
+				<!-- JSON -->
+				<section>
+					<section>
+						<h2>JSON</h2>
+					</section>
+					<section>
+						<blockquote>JSON (JavaScript Object Notation) is a lightweight data-interchange format.</blockquote>
+					</section>
+					<section>
+						<h3>Value Types</h3>
+						<ul>
+							<li>string with double quotes</li>
+							<li>number</li>
+							<li>true</li>
+							<li>false</li>
+							<li>null</li>
+							<li>object - a collection of name/value pair with {}</li>
+							<li>array - an ordered list of values with []</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Example</h4>
+						<div style="display: flex; justify-content: space-between;">
+						<div style="width: 50%;">
+						<h5 style="font-size: 0.5em;">JSON</h5>
+						<pre style="font-size: 0.25em;"><code class="json">{
+  "id": "59ce6b9a5a9fde471eb2b8a4",
+  "author": "adops",
+  "description": "Ad Skip - Preroll - Partner & UGC - Onsite",
+  "conditions": [
+    {
+      "dimension": "context.position",
+      "op": true,
+      "value": [
+        "preroll"
+      ]
+    },
+    {
+      "dimension": "owner.type",
+      "op": true,
+      "value": [
+        "partner",
+        "ugc"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "yield": 100,
+      "rank": 5,
+      "type": "skip",
+      "value": {
+        "offset": 30000
+      }
+    }
+  ]
+}</code></pre>
+					</div>
+					<div style="width: 50%;">
+						<h5 style="font-size: 0.5em;">Javascript</h5>
+						<pre style="font-size: 0.25em;"><code class="js">var rule = {
+  id: '59ce6b9a5a9fde471eb2b8a4',
+  author: "adops",
+  description: 'Ad Skip - Preroll - Partner & UGC - Onsite',
+  conditions: [
+    {
+      "dimension": "context.position", // you can have key as a string too
+      op: true,
+      value: [
+        "preroll"
+      ]
+    },
+    {
+      dimension: 'owner.type', // single quote string is OK
+      op: true,
+      value: [
+        "partner",
+        "ugc", // you can add additonal "," at the end of array or object content 
+      ]
+    }
+  ],
+  actions: [
+    {
+      yield: 100,
+      rank: 5,
+      type: "skip",
+      value: {
+        offset: 30000
+      }
+    }
+  ]
+}</code></pre>
+					</div>
+					</div>
+					<a href="https://jsonformatter.org/" target="_blank">json online editor</a>
+					</section>
+				</section>
+				<!-- End of JSON -->
+
 				<!-- Control flow -->
 				<section>
 					<section>
@@ -489,6 +588,32 @@ number %= 2; // 0; mod operator
 	console.log(i);
 }</code></pre>
 					</section>
+					<section>
+						<h3>Iterate through an array</h3>
+						<pre><code class="js">var fruits = ['apple', 'banana', 'pineapple'];
+
+fruits.forEach(function(item, index) {
+	console.log(item, index);
+})
+
+for (let fruit of fruits) {
+	console.log(fruit);	
+}
+</code></pre>
+					</section>
+					<section>
+						<h3>Iterate through a map</h3>
+						<pre><code class="js">var fruits = {
+	apple: 10,
+	banana: 3,
+	pineapple: 12
+}
+
+for (let k in fruitsMap) {
+  console.log(k, fruitsMap[k]);
+}</code></pre>
+						<a href="https://codepen.io/bhou/pen/geaYRg" target="_blank">play</a>
+					</section>
 				</section>
 					
 				<!-- End of Control flow -->
@@ -587,6 +712,93 @@ printMultiply(12, 2, multiply);
 					</section>
 				</section>
 				<!-- End of Error Handling -->
+
+				<!-- Language Comparison -->
+				<section>
+					<section>
+						<h3>Language Comparison</h3>
+					</section>
+					<section>
+						<h4>Javascript, Python,  Golang</h4>
+					</section>
+					<section>
+						<h4>Data Type</h4>
+						<p style="font-size: 0.5em;">Javascript (Interpreted)</p>
+						<pre><code class="js">var greeting = "Hello"
+let number = 123.45
+const boolType = true</code></pre>
+						<p style="font-size: 0.5em;">Python (Interpreted)</p>
+						<pre><code class="python">greeting = "Hello"
+number = 123.45
+boolType = True</code></pre>
+						<p style="font-size: 0.5em;">Golang (Compiled)</p>
+						<pre><code class="golang">var greeting string = "Hello"
+var number float64 = 123.45
+const boolType bool = true</code></pre>
+					</section>
+
+					<section>
+						<h4>Data Type</h4>
+						<p style="font-size: 0.5em;">Javascript (weak type)</p>
+						<pre><code class="javascript">var array = ["apple", "banana", "pineapple"]
+var map = {
+	fruit: ["apple", "banana", "pineapple"]
+}</code></pre>
+						<p style="font-size: 0.5em;">Python (weak type)</p>
+						<pre><code class="python">fruits = ["apple", "banana", "pineapple"]
+map = {
+	'fruit': [ 'apple', 'banana', 'pineapple' ]
+}
+</code></pre>
+						<p style="font-size: 0.5em;">Golang (strong type)</p>
+						<pre><code class="golang">var array []string = []string{"apple", "banana", "pineapple"}
+var mapType map[string][]string = map[string][]string{
+	"fruit": []string{"apple", "banana". "pineapple"}
+}
+</code></pre>
+
+					</section>
+					<section>
+						<h4>Control flow</h4>
+						<p style="font-size: 0.5em;">Javascript</p>
+						<pre><code class="javascript">for (let i = 0; i < 10; i++) {
+	if (i % 2 == 0) { 
+		console.log(i); 
+  }
+}</code></pre>
+						<p style="font-size: 0.5em;">Python</p>
+						<pre><code class="python">for i in range(10):
+	if i % 2 == 0:
+		print i</code></pre>
+						<p style="font-size: 0.5em;">Golang</p>
+						<pre><code class="golang">for i := 0; i < 10; i++ {
+	if i % 2 == 0 {
+		fmt.Println(i)
+  } 
+}
+</code></pre>
+					</section>
+					<section>
+						<h3>Function</h3>
+						<p style="font-size: 0.5em;">Javascript</p>
+						<pre><code class="javascript">function multiply(a, b) {
+	return a * b;
+}
+console.log(multiply(12, 2));</code></pre>
+						<p style="font-size: 0.5em;">Python</p>
+						<pre><code class="python">def multiply(a, b):
+  return a * b
+  
+print multiply(12, 2)</code></pre>
+						<p style="font-size: 0.5em;">Golang</p>
+						<pre><code class="golang">func multiply(a int, b int) int {
+	return a * b;
+}
+fmt.Println(multiply(12, 2))</code></pre>
+
+					</section>
+				</section>
+				<!-- End of Language Comparison -->
 			</div>
 		</div>
 
