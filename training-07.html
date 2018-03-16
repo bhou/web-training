@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Development Training</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+		pre {
+			tab-size: 2;
+			-moz-tab-size:2;
+		}
+
+		text {
+			fill: #e7ad52;
+		}
+
+		rect {
+			stroke: #e7ad52;
+			fill-opacity: 0;
+		}
+
+		line {
+			stroke: #e7ad52;
+		}
+
+		marker {
+			fill: #e7ad52;
+		}
+
+		.signal text {
+			fill: #e7ad52;
+		}
+
+		.signal text:hover {
+			fill: #e7ad52;
+		}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /p target="_blank"rint-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Javascript Front Development</h2>
+					<p>
+						<small>By <a href="bo.hou@dailymotion.com">Bo HOU</a> ( <a href="bo.hou@dailymotion.com">bo.hou@dailymotion.com</a> )</small>
+					</p>
+				</section>
+
+				<!-- DOM -->
+				<section>
+					<section>
+						<h3>Data Structure</h3>
+					</section>
+					<section>
+						<h3>Javascript In Browser</h3>
+						<img style="height:350px; background-color: #FFF; border:none; box-shadow:none; padding: 10px;" src="img/web-training/training06/javascript_in_browser.png"/>
+					</section>
+					<section>
+						<h4>To Do: change text color to <span style="color: #0af;">blue</span></h4>
+						<pre><code>&lt;div id=&quot;greeting&quot;&gt;Hello World!&lt;/div&gt;</code></pre>
+						<p class="fragment">How do you do it manually?</p>
+						<div class="fragment">
+							<ol>
+								<li>Find the div contains the text</li>
+								<li>Set up its style with <code>color: #0af;</code></li>
+							</ol>
+						</div>
+					</section>
+					<section>
+						<h3>We need a data structure to help program manupulate HTML document</h3>
+					</section>
+					<section>
+						<h3>DOM (Document Object Model)</h3>
+						<p>DOM is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content.</p>
+					</section>
+					<section>
+						<h3>Javascript In Browser</h3>
+						<img style="height:350px; background-color: #FFF; border:none; box-shadow:none; padding: 10px;" src="img/web-training/training06/javascript_in_browser_2.png"/>
+					</section>
+					<section>
+						<h3>DOM is a <a href="https://codepen.io/bhou/pen/qxBPJB" target="_blank">tree</a></h3>
+					</section>
+					<section>
+						<h3>Data types in DOM</h3>
+						<ul>
+							<li>document</li>
+							<li>element</li>
+							<li>nodeList</li>
+							<li>attribute</li>
+							<li>namedNodeMap</li>
+						</ul>
+					</section>
+				</section>
+				<!-- End of DOM -->
+
+				<!-- Pattern -->
+				<section>
+					<section>
+						<h3>Catch and Change Pattern</h3>
+					</section>
+					<section>
+						<h3>Find it and Change it!</h3>
+					</section>
+					<section>
+						<h3>Find</h3>
+						<pre><code class="javascript">document.getElementById(id)
+document.getElementsByClassName(className)
+document.querySelector(cssSelector)
+document.querySelectorAll(cssSelector)
+
+var elem = document.querySelector('#id')
+elem.getElementById(id)
+elem.getElementsByClassName(className)
+elem.querySelector(cssSelector)
+elem.querySelectorAll(cssSelector)
+</code></pre>
+						<a href="./web-training/example.html" target="_blank">demo</a>
+					</section>
+					<section>
+						<h3>Change</h3>
+						<pre><code class="js">var articles = document.querySelector('#articles');
+// change elements by its properties
+articles.styles.color = '#0af';
+
+// create a new 'a' tag
+var link = document.createElement('a');
+
+// set attributes and content &lt;a href="..."&gt;content&lt;/a&gt;
+link.setAttribute('href', 'https://dailymotion.com')
+link.textContent = 'Dailymotion'
+
+// add new link in the document
+articles.appendChild(link)
+</code></pre>
+					<p class="fragment">by property or function</p>
+					</section>
+				</section>
+				<!-- End of Pattern -->
+
+				<section>
+					<h3>Event Driven Programming</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 960,
+				height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				// margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				// minScale: 0.2,
+				// maxScale: 1.5
+
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				sequencediagrams: {
+					theme: "simple",
+					useFragments: true,
+					initialize: (function(diagramContainer){
+						console.log("Diagram rendered!");
+					})
+			 },
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/sequence-diagrams/webfont.js' },
+					{ src: 'plugin/sequence-diagrams/snap.svg-min.js' },
+					{ src: 'plugin/sequence-diagrams/underscore-min.js' },
+					{ src: 'plugin/sequence-diagrams/sequence-diagram-min.js' },
+					{ src: 'plugin/sequence-diagrams/sequence-diagrams-plugin-modified.js' },
+				]
+			});
+
+
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			/*
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			*/
+		</script>
+	</body>
+</html>
