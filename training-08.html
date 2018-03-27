@@ -42,6 +42,19 @@
 		.signal text:hover {
 			fill: #e7ad52;
 		}
+
+		.text-red {
+			color: #FF595E;
+    }
+		.text-yellow {
+			color: #FFCA3A;
+    }
+		.text-green {
+			color:#8AC926;	
+    }
+		.text-blue {
+			color:#1982C4;
+    }
 		</style>
 
 		<!-- Printing and PDF exports -->
@@ -155,8 +168,106 @@ articles.appendChild(link)
 				<!-- End of Pattern -->
 
 				<section>
-					<h3>Event Driven Programming</h3>
+					<section>
+						<h3>Event Driven Programming</h3>
+					</section>
+					<section>
+						<h3>Joe's routine</h3>
+						<ol>
+							<li>08:00 Get Up</li>
+							<li>08:30 Breakfast</li>
+							<li>09:00 Take bus</li>
+							<li>09:30 Work</li>
+							<li>12:00 Lunch</li>
+							<li>13:00 Work</li>
+							<li>...</li>
+							<li>22:00 Sleep</li>
+							<li>Back to 1. for next day</li>
+						</ol>
+					</section>
+					<section>
+						<h3>One day, at a bar ...</h3>
+					</section>
+					<section data-background="./img/web-training/training08/dream-girl.gif" data-background-size="720px">
+						<!--
+						<iframe src="https://giphy.com/embed/l4pTbr3r4JlEXJ4Zy" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cartoonhangover-cartoon-hangover-bravest-warriors-l4pTbr3r4JlEXJ4Zy"></a></p>
+						-->
+						<p class="fragment" style="position: fixed; bottom: 0px; width: 100%;">They decide to hang out sometime</p>
+					</section>
+					<section>
+						<h3>Now the questions are:</h3>
+						<ul>
+							<li>Will it happen?</li>
+							<li>When?</li>
+							<li>For what?</li>
+						</ul>
+						<p>Joe needs to know the answer to prepare for it</p>
+					</section>
+					<section>
+						<h3>One possible solution</h3>
+						<ol style="font-size: 0.8em; list-style: none;">
+							<li class="text-red">08:00 Get Up and call the girl</li>
+							<li>08:30 Breakfast</li>
+							<li class="text-red">09:00 Call the girl</li>
+							<li>09:05 Take bus</li>
+							<li class="text-red">10:00 Call the girl</li>
+							<li>10:05 Work</li>
+							<li class="text-red">11:00 Call the girl</li>
+							<li>...</li>
+							<li class="text-red">22:00 Call the girl</li>
+							<li>22:05 Sleep</li>
+							<li>Back to 1. for next day</li>
+						</ol>
+						<p class="fragment text-blue">polling</p>
+					</section>
+					<section>
+						<h3>A better idea</h3>
+					</section>
+					<section data-background="./img/web-training/training08/callme.gif" data-background-size="960px"></section>
+					<section>
+						<h3>Joe's new strategy</h3>
+						<ul>
+							<li>Have a normal day as usual</li>
+							<li>Once she calls, prepare for it</li>
+						</ul>
+					</section>
+					<section>
+						<h3>It is called Event Driven</h3>
+					</section>
+					<section>
+						<h3>Main concepts in Event Driven</h3>
+						<ul style="font-size: 0.8em;">
+							<li>Register to an event to show your interests (hang out)</li>
+							<li>Provide a notification channel (the call) when event happens</li>
+							<li>Event itself contains additional information (when, what)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Back in javascript</h3>
+						<pre><code class="js">// first of first, choose the right girl
+var theGirl = document.querySelector('#the-girl');
+
+function call(event) {
+	// prepare the hang out
+}
+
+// register to 'hang out' event, with 'call' function
+theGirl.addEventListener('hang out', call);
+</code></pre>
+					</section>
+					<section>
+						<h3>A real example</h3>
+						<pre><code class="js">var article1 = document.querySelector('#article-1');
+
+function onClick(event) {
+	console.log('You clicked me!!');
+}
+
+article1.addEventListener('click', onClick);
+</code></pre>
+					</section>
 				</section>
+				<section data-background="./img/web-training/training08/greatjob.gif"></section>
 			</div>
 		</div>
 

@@ -7,7 +7,7 @@
   "main": "js/reveal.js",
   "scripts": {
     "test": "grunt test",
-    "start": "grunt serve -port=8888",
+    "start": "grunt serve -port=9999",
     "build": "grunt"
   },
   "author": {
