@@ -1,0 +1,546 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Development Training</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+		pre {
+			tab-size: 2;
+			-moz-tab-size:2;
+		}
+
+		text {
+			fill: #e7ad52;
+		}
+
+		rect {
+			stroke: #e7ad52;
+			fill-opacity: 0;
+		}
+
+		line {
+			stroke: #e7ad52;
+		}
+
+		marker {
+			fill: #e7ad52;
+		}
+
+		.signal text {
+			fill: #e7ad52;
+		}
+
+		.signal text:hover {
+			fill: #e7ad52;
+		}
+
+		.text-red {
+			color: #FF595E;
+    }
+		.text-yellow {
+			color: #FFCA3A;
+    }
+		.text-green {
+			color:#8AC926;	
+    }
+		.text-blue {
+			color:#1982C4;
+    }
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /p target="_blank"rint-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Build your own video player</h2>
+					<p>
+						<small>By <a href="bo.hou@dailymotion.com">Bo HOU</a> ( <a href="bo.hou@dailymotion.com">bo.hou@dailymotion.com</a> )</small>
+					</p>
+				</section>
+
+				<!-- HTML 5 Player -->
+				<section>
+					<section>
+						<h3>HTML 5 <span class="text-red">Video</span> Tag</h3>
+					</section>
+					<section>					
+						<h5>Play video with video tag</h5>
+						<pre><code class="html">&lt;video width="480" height="360" 
+	src="http://example.com/video.webm"&gt;
+&lt;/video&gt;</code></pre>
+					</section>
+					<section>
+						<h3>Useful video attributes</h3>
+						<pre><code class="html">&lt;video width="480" height="360" controls autoplay loop muted&gt;
+	&lt;source src="http://example.com/video.webm" type="video/webm"&gt;		
+	&lt;source src="http://example.com/video.mp4" type="video/mp4"&gt;		
+	&lt;source src="http://example.com/video.ogg" type="video/ogg"&gt;		
+&lt;/video&gt;</code></pre>
+					</section>
+					<section>
+						<video width="640" height="480" controls>
+							<source src="http://localhost:8080/videos/ad1.webm" type="video/webm">
+						</video>
+					</section>
+					<section>
+						<h3>That's all, Thanks!</h3>
+					</section>
+				</section>
+				<!-- End of HTML 5 player -->
+
+				<!-- -->
+				<section>
+					<section>
+						<h3>What about advanced features</h3>
+					</section>
+					<section>
+						<ul>
+							<li>Performance</li>
+							<li>Customized UI / UX</li>
+							<li>Monetization (Ads Support)</li>
+							<li>...</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Control the default video player by <span class="text-red">Javascript</span></h4>
+					</section>
+				</section>
+				<!-- -->
+
+				<!-- Ads Support -->
+				<section>
+					<section>
+						<h3>Ads Support in Video Player</h3>
+					</section>
+					<section>
+						<h3>Think about the API</h3>
+<pre class="fragment"><code class="js">function play(videoURL) {
+	// ...
+}</code></pre>
+<pre class="fragment"><code class="js">function play(videoURL, timeline) {
+	// ...
+}</code></pre>
+					</section>
+					<section>
+						<h3>Timeline</h3>
+						<pre style="font-size: 0.8rem;"><code class="js">{
+	preroll: {
+		url: 'http://localhost:8080/videos/ad3.webm',
+		skippable: true,
+	},
+	midroll: [
+		{
+			when: 10, // at 10 seconds
+			url: 'http://localhost:8080/videos/ad1.webm',
+			skippable: true,
+		},
+		{
+			when: 20,
+			url: 'http://localhost:8080/videos/ad3.webm',
+			skippable: false,
+		},
+	],
+	postroll: {
+		url: 'http://localhost:8080/videos/ad3.webm',
+		skippable: true,
+	},
+}</code></pre>
+					</section>
+					<section>
+						<h3>How to display a video from <span class="text-red">Javascript</span>?</h3>
+					</section>
+					<section>
+						<h3>play video with javascript</h3>
+						<pre><code class="js">function play(videoURL, timeline) {
+	let video = document.querySelector('.player > video');
+	video.src = videoURL;
+	video.load();
+	video.play();
+}</code></pre>
+					</section>
+
+					<section>
+						<h3>Will this work?</h3>
+						<pre><code class="js">function play(videoURL, timeline) {
+	let video = document.querySelector('.player > video');
+
+	// play preroll
+	video.src = timeline.preroll.url;
+	video.load();
+	video.play();
+
+	// play video
+	video.src = videoURL;
+	video.load();
+	video.play();
+}</code></pre>
+						<p class="fragment"><span class="text-red">NO</span></p>
+					</section>
+
+					<section>
+						<h3>Wait for a video ends</h3>
+						<pre><code class="js">function play(videoURL, timeline) {
+	let video = document.querySelector('.player > video');
+
+	// play preroll
+	video.src = timeline.preroll.url;
+	video.addEventListener('timeupdate', function(event) {
+		console.log(event.target.currentTime, video.duration);
+		// play main video content if preroll video ends
+	});
+	video.load();
+	video.play();
+
+}</code></pre>
+					</section>
+					<section>
+						<h3>When to show midroll Ads?</h3>
+						<pre><code class="javascript">let videoTimeUpdater = function(event) {
+	// check every midroll 
+	for (let i = 0; i < timeline.midroll.length; i++) {
+		if (Math.floor(event.target.currentTime) ===
+			 Math.floor(timeline.midroll[i].when)) {
+			// find matched midroll ads, play it
+			video.src = timeline.midroll[i].url;
+			video.removeEventListener('timeupdate', videoTimeUpdater);
+			video.addEventListener('timeupdate', midrollTimeUpdater);
+			video.load();
+			video.play();
+		}
+	}
+}
+</code></pre>
+					</section>
+					<section>
+						<img style="height:400px; background-color: #FFF; border:none; box-shadow:none;" src="img/web-training/training09/timeline.png"/>
+					</section>
+					<section>
+						<h3>Check The Code</h3>
+						<p>don't panic, less than 100 lines of code</p>
+					</section>
+				</section>
+				<!-- End of Ads support -->
+
+				<section>
+					<section>
+						<h3>How do we use the player?</h3>
+					</section>
+					<section>
+						<pre><code>play(videoURL, timeline)</code></pre>
+						<p class="fragment">Question: how do we get the timeline?</p>
+					</section>
+					<section>
+						<ol>
+							<li>Get timeline (VMAP) from AD-Director</li>
+							<li>Convert VMAP to timeline json</li>
+							<li><pre><code>play(videoURL, timeline)</code><pre></li>
+						</ol>
+					</section>
+					<section>
+						<h3>Send Request from <span class="color-red">Javascript</span></h3>
+						<pre><code class="js">var req = new XMLHttpRequest();
+req.addEventListener('load', function(e) {
+	console.log(req.responseText);
+	let timeline = JSON.parse(req.responseText);
+	play(videoURL, timeline);
+})
+req.open('GET', addirectorURL);
+req.send();</code></pre>
+					</section>
+					<section>
+						<h4>Wait, it is too complicated, right?</h4>
+						<p>Why not do it this way:</p>
+						<pre><code>let reponseText = req.send('GET', addirectorURL);</code></pre>
+					</section>
+				</section>
+
+				<!-- Async -->
+				<section>
+					<section>
+						<h3>Sync vs. Async</h3>
+						<p class="fragment">blocking vs. non-blocking</p>
+					</section>
+					<section>
+						<h3>CPU intensive & IO intensive</h3>
+					</section>
+					<section data-background="./img/web-training/training09/lego.gif">
+					</section>
+					<section>
+						<ul>
+							<li>Buy Lego pieces from amazon.com</li>
+							<li>Build the project with these lego pieces</li>
+						</ul>
+					</section>
+					<section>
+						<h3>One day ...</h3>
+						<p class="fragment">You noticed that there are not enough lego pieces left</p>
+					</section>
+					<section>
+						<h3>Buy More!</h3>
+						<p class="fragment">Will you wait it arrive to continue your work?</p>
+						<p class="fragment">Or you continue your work with the pieces left?</p>
+					</section>
+					<section>
+						<h3>Back to Computer Science World</h3>
+					</section>
+					<section>
+						<ul>
+							<li>Build project: CPU intensive job</li>
+							<li>Buy Lego: IO intensive job</li>
+							<li>Wait until lego arrives to work: blocking model</li>
+							<li>Continue the work while waiting: non-blocking model</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Send Request from <span class="color-red">Javascript</span></h3>
+						<pre><code class="js">var req = new XMLHttpRequest();
+req.addEventListener('load', function(e) {
+	console.log(req.responseText);
+	let timeline = JSON.parse(req.responseText);
+	play(videoURL, timeline);
+})
+req.open('GET', addirectorURL);
+req.send();
+// keep doing other jobs while waiting for response
+console.log('running without waiting for response')
+</code></pre>
+					</section>
+					<section>
+						<h4>Wait, it is too complicated, right?</h4>
+						<p>Why not do it this way:</p>
+						<pre><code>let reponseText = req.send('GET', addirectorURL);</code></pre>
+					</section>
+					<section>
+						<h4>One solution</h4>
+						<pre style="font-size:1rem;"><code>function request(url, done) {
+	let req = new XMLHttpRequest();
+	req.addEventListener('load', function(e) {
+		let timeline = JSON.parse(req.responseText);
+		done(null, timeline);
+	});
+	req.addEventListener('error', function(e) {
+		done(new Error('something went wrong'), null);
+	})
+	req.open('GET', addirectorURL);
+	req.send();
+}
+
+request('http://addirector.com/timeline', function(err, result) {
+	if (err) {
+		// handle error here
+	} else {
+		// process with result
+  }
+});
+</code></pre>
+					</section>
+					
+					<section>
+						<h3>Callback Function</h3>
+						<pre><code>function callback(err, result) {
+	// processing results
+}</code></pre>
+					</section>
+					
+					<section>
+						<p>Send Request A, then Request B, then Request C, then Request D, then Request E, then Request F, and then Request G, when all succeed, process with all of their responses.</p>
+					</section>
+
+					<section>
+						<pre><code class="js">request(urlA, function(err, resultA) {
+	request(urlB, function(err, resultB) {
+		request(urlC, function(err, resultC) {
+			request(urlD, function(err, resultD) {
+				request(urlE, function(err, resultE) {
+					request(urlF, function(err, resultF) {
+						request(urlG, function(err, resultG) {
+						
+						})
+					})
+				})
+			})	
+		})
+	})
+})</code></pre>
+					<h3 class="fragment"><span class="text-red">Callback Hell</span></h3>
+					</section>
+					<section data-background="./img/web-training/training09/error.gif">
+					</section>
+				</section>
+				<!-- End of Async -->
+
+				<!-- Promise -->
+				<section>
+					<section>
+						<h3>A better way - <span class="text-red">Promise<span></h3>
+					</section>
+					<section>
+						<pre><code class="js">function getReqPromise(url) {
+	return new Promise(function(resolve, reject) {
+		request(url, function(err, result) {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(result); // pass result (100) to resolve
+			}
+		});
+	});
+}</code></pre>
+					</section>
+					<section>
+						<pre><code class="js">var reqPromise = getReqPromise('http://getNumber.com/100')
+
+reqPromise
+.then(function(result) {
+	// process with result
+})
+.catch(function(err) {
+	// process with error
+})</code></pre>
+					</section>
+					<section>
+						<h3>Chaining</h3>
+						<pre><code class="js">reqPromise
+.then(function(result) {
+	return result + 1;
+})
+.then(function(result) {
+	console.log(result); // 101
+})</code></pre>
+					</section>
+					<section>
+						<h3>Promise is not the only way</h3>
+						<ul>
+							<li><a href="http://caolan.github.io/async/">async</a></li>
+							<li><a href="http://collarjs.com">collar.js</a></li>
+						</ul>
+					</section>
+				</section>
+				<!-- End of Promise -->
+				
+				<section>
+					<section>
+						<h3>ES6 - <span class="text-red">Async/Await</span></h3>
+					</section>
+					<section>
+						<h4>We are expecting someting like this:</h4>
+						<pre><code class="js">let reponseText = req.send('GET', addirectorURL);</code></pre>
+					</section>
+					<section>
+						<pre><code class="js">function getRequestData(url) {
+	return new Promise(function(resolve, reject) {
+		request(url, function(err, result) {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(result); // pass result (100) to resolve
+			}
+		});
+	});
+}</code></pre>
+					</section>
+					
+					<section>
+						<pre><code class="js">async function asyncRequestData(url) {
+	let output
+	try {
+		let result = await getRequestData(url);
+		// process result and get output
+	} catch (err) {
+		// process error
+	}
+	return output 
+}</code></pre>
+					</section>
+
+					<section>
+						<h3>async function returns a <span class="text-red">Promise</span></h3>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 960,
+				height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				// margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				// minScale: 0.2,
+				// maxScale: 1.5
+
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				sequencediagrams: {
+					theme: "simple",
+					useFragments: true,
+					initialize: (function(diagramContainer){
+						console.log("Diagram rendered!");
+					})
+			 },
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/sequence-diagrams/webfont.js' },
+					{ src: 'plugin/sequence-diagrams/snap.svg-min.js' },
+					{ src: 'plugin/sequence-diagrams/underscore-min.js' },
+					{ src: 'plugin/sequence-diagrams/sequence-diagram-min.js' },
+					{ src: 'plugin/sequence-diagrams/sequence-diagrams-plugin-modified.js' },
+				]
+			});
+
+
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			/*
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			*/
+		</script>
+	</body>
+</html>
