@@ -1,0 +1,415 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Development Training</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+		pre {
+			tab-size: 2;
+			-moz-tab-size:2;
+		}
+
+		text {
+			fill: #e7ad52;
+		}
+
+		rect {
+			stroke: #e7ad52;
+			fill-opacity: 0;
+		}
+
+		line {
+			stroke: #e7ad52;
+		}
+
+		marker {
+			fill: #e7ad52;
+		}
+
+		.signal text {
+			fill: #e7ad52;
+		}
+
+		.signal text:hover {
+			fill: #e7ad52;
+		}
+
+		.text-red {
+			color: #FF595E;
+    }
+		.text-yellow {
+			color: #FFCA3A;
+    }
+		.text-green {
+			color:#8AC926;	
+    }
+		.text-blue {
+			color:#1982C4;
+    }
+		.bold {
+			font-weight: 700 !important;
+		}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /p target="_blank"rint-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>VMAP & VAST</h2>
+					<p>
+						<small>By <a href="bo.hou@dailymotion.com">Bo HOU</a> ( <a href="bo.hou@dailymotion.com">bo.hou@dailymotion.com</a> )</small>
+					</p>
+				</section>
+
+				<!-- Player timeline -->
+				<section>
+					<section>
+						<h3>Player Side Point of View</h3>
+					</section>
+					<section>
+						<h3>Player</h3>
+						<pre><code class="js">function play(videoURL, timeline){
+	// play video and ads here
+}</code></pre>
+					</section>
+					<section>
+						<h3>Timeline</h3>
+						<pre style="font-size: 0.8rem;"><code class="js">{
+	preroll: {
+		url: 'http://localhost:8080/videos/ad3.webm',
+		skippable: true,
+	},
+	midroll: [
+		{
+			when: 10, // at 10 seconds
+			url: 'http://localhost:8080/videos/ad1.webm',
+			skippable: true,
+		},
+		{
+			when: 20,
+			url: 'http://localhost:8080/videos/ad3.webm',
+			skippable: false,
+		},
+	],
+	postroll: {
+		url: 'http://localhost:8080/videos/ad3.webm',
+		skippable: true,
+	},
+}</code></pre>
+					</section>
+					<section>
+						<h3>What's in the Timeline?</h3>
+						<ul>
+							<li>Ad Break (timeline)</li>
+							<li>Creative for each Ad Break</li>
+							<li>... (to simplify, ignore the rest)</li>
+						</ul>
+					</section>
+				</section>
+				<!-- End of Player Timeline -->
+
+				<!-- XML  -->
+				<section>
+					<section>
+						<h3><span class="text-red">XML</span></h3>
+						<p>E<span class="text-red bold">X</span>tensible <span class="text-red bold">M</span>arkup <span class="text-red bold">L</span>anguage</p>
+					</section>
+					<section>
+						<h3>Minimal Introduction of XML</h3>
+						<p>General purpose markup language, in order to share data across different systems</p>
+					</section>
+					<section>
+						<h3>How to present data in XML?</h3>
+						<p>Think about Object Oriented Programming</p>
+						<ul>
+							<li>Use <span class="text-red bold">Tag</span> to present object</li>
+							<li>Use <span class="text-red bold">Attribtue</span> to describe object</li>
+							<li>Use <span class="text-red bold">Children</span> elements to describe structure</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Example</h3>
+						<pre style="font-size: 0.8rem;"><code>&lt;category&gt;
+    &lt;book id=&quot;bk101&quot;&gt;
+				&lt;author&gt;Gambardella, Matthew&lt;/author&gt;
+				&lt;title&gt;XML Developer's Guide&lt;/title&gt;
+				&lt;genre&gt;Computer&lt;/genre&gt;
+				&lt;price&gt;44.95&lt;/price&gt;
+				&lt;publish_date&gt;2000-10-01&lt;/publish_date&gt;
+				&lt;description&gt;An in-depth look at creating applications with XML.&lt;/description&gt;
+    &lt;/book&gt;
+    &lt;book id=&quot;bk102&quot;&gt;
+				&lt;author&gt;Ralls, Kim&lt;/author&gt;
+				&lt;title&gt;Midnight Rain&lt;/title&gt;
+				&lt;genre&gt;Fantasy&lt;/genre&gt;
+				&lt;price&gt;5.95&lt;/price&gt;
+				&lt;publish_date&gt;2000-12-16&lt;/publish_date&gt;
+				&lt;description&gt;A former architect battles corporate zombies, an evil sorceress ...&lt;/description&gt;
+   &lt;/book&gt;
+&lt;/category&gt;</code></pre>
+					</section>
+					<section>
+						<h3>Attribute Vs. Element</h3>
+						<pre style="font-size: 0.8rem;"><code>&lt;category&gt;
+    &lt;book id=&quot;bk101&quot; author=&quot;Gambardella, Matthew&quot; genre=&quot;Computer&quot;&gt;
+        &lt;title&gt;XML Developer's Guide&lt;/title&gt;
+        &lt;price&gt;44.95&lt;/price&gt;
+        &lt;publish_date&gt;2000-10-01&lt;/publish_date&gt;
+        &lt;description&gt;An in-depth look at creating applications with XML.&lt;/description&gt;
+    &lt;/book&gt;
+    &lt;book id=&quot;bk102&quot; author=&quot;Ralls, Kim&quot; genre=&quot;Fantasy&quot;&gt;
+				&lt;title&gt;Midnight Rain&lt;/title&gt;
+				&lt;price&gt;5.95&lt;/price&gt;
+				&lt;publish_date&gt;2000-12-16&lt;/publish_date&gt;
+				&lt;description&gt;A former architect battles corporate zombies, an evil sorceress ...&lt;/description&gt;
+   &lt;/book&gt;
+&lt;/category&gt;</code></pre>
+					</section>
+					<section>
+						<h3>The JSON Equivalent</h3>
+						<pre style="font-size: 0.8rem;"><code class="js">{
+	"type": "category",
+  "books": [
+		{
+			"id": "bk101",
+			"type": "book",
+			"author": "Gembardella, Matthew",
+			"genre": "Computer",
+			"title": "XML Developer's Guide",
+			"price": 44.95,
+			"publish_date": "2000-10-01",
+			"description": "An in-depth look at creating applications with XML."
+		},
+		{
+			"id": "bk102",
+			"type": "book",
+			"author": "Ralls, Kim",
+			"genre": "Fantasy",
+			"title": "Midnight Rain",
+			"price": 5.95,
+			"publish_date": "2000-12-16",
+			"description": "A former architect battles corporate zombies, an evil sorceress ..."
+		},
+  ]
+}</code></pre>
+					</section>
+					<section>
+						<h3>CDATA</h3>
+						<pre><code>&lt;script&gt;
+   &lt;![CDATA[
+      &lt;message&gt; Welcome to TutorialsPoint &lt;/message&gt;
+   ]] &gt;
+&lt;/script&gt;</code></pre>
+						<p>When content contains XML sensitive characters</p>
+					</section>
+					<section>
+						<h3>Validate XML</h3>
+						<p><span class="text-red bold">DTD</span>: <span class="text-red bold">D</span>ocument <span class="text-red bold">T</span>ype <span class="text-red bold">D</span>efinition</p>
+						<p><span class="text-red bold">XSD</span>: <span class="text-red bold">X</span>ML <span class="text-red bold">S</span>chema <span class="text-red bold">D</span>efinition</p>
+						<p><a href="https://www.ibm.com/developerworks/library/xml-schema/" target="_blank">DTD & XSD Example</a></p>
+					</section>
+				</section>
+				<!-- End of XML -->
+
+				<!-- VAST -->
+				<section>
+					<section>
+						<h2><span class="text-red">VAST</span></h2>
+						<p><span class="text-red bold">V</span>ideo <span class="text-red bold">A</span>d <span class="text-red bold">S</span>erving <span class="text-red bold">T</span>emplate</p>
+					</section>
+					<section>
+						<h3>VAST</h3>
+						<p>Provides a template for serving an ad to a vidoe player</p>
+						<p class="fragment">(Provides information for serving a single ad)</p>
+					</section>
+					<section>
+						<h3>Client Side Ad Serving</h3>
+						<img style="height:400px; background-color: #FFF; border:none; box-shadow:none;" src="img/web-training/training10/client-vast.png"/>
+					</section>
+					<section>
+						<h3>Server Side Ad Serving</h3>
+						<img style="height:400px; background-color: #FFF; border:none; box-shadow:none;" src="img/web-training/training10/server-vast.png"/>
+					</section>
+					<section>
+						<h3>Inline VAST</h3>
+<!--
+						<pre style="font-size: 0.6rem;"><code>&lt;VAST version=&quot;3.0&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;Ad id=&quot;20001&quot;&gt;
+        &lt;InLine&gt;
+            &lt;AdSystem version=&quot;4.0&quot;&gt;iabtechlab&lt;/AdSystem&gt;
+            &lt;AdTitle&gt;iabtechlab video ad&lt;/AdTitle&gt;
+
+            &lt;Pricing model=&quot;cpm&quot; currency=&quot;USD&quot;&gt;
+                &lt;![CDATA[ 25.00 ]]&gt;
+            &lt;/Pricing&gt;
+
+            &lt;Error&gt;http://example.com/error&lt;/Error&gt;
+
+            &lt;Impression id=&quot;Impression-ID&quot;&gt;http://example.com/track/impression&lt;/Impression&gt;
+
+            &lt;Creatives&gt;
+                &lt;Creative id=&quot;5480&quot; sequence=&quot;1&quot;&gt;
+                    &lt;Linear&gt;
+                        &lt;Duration&gt;00:00:16&lt;/Duration&gt;
+                        &lt;TrackingEvents&gt;
+                           &lt;Tracking event=&quot;start&quot; offset=&quot;09:15:23&quot;&gt;http://example.com/tracking/start&lt;/Tracking&gt;
+                            &lt;Tracking event=&quot;firstQuartile&quot;&gt;http://example.com/tracking/firstQuartile&lt;/Tracking&gt;
+                            &lt;Tracking event=&quot;midpoint&quot;&gt;http://example.com/tracking/midpoint&lt;/Tracking&gt;
+                            &lt;Tracking event=&quot;thirdQuartile&quot;&gt;http://example.com/tracking/thirdQuartile&lt;/Tracking&gt;
+                            &lt;Tracking event=&quot;complete&quot;&gt;http://example.com/tracking/complete&lt;/Tracking&gt;
+                        &lt;/TrackingEvents&gt;
+
+                         &lt;VideoClicks&gt;
+                            &lt;ClickTracking id=&quot;blog&quot;&gt;
+                                &lt;![CDATA[https://iabtechlab.com]]&gt;
+                            &lt;/ClickTracking&gt;
+                            &lt;CustomClick&gt;http://iabtechlab.com&lt;/CustomClick&gt;
+                        &lt;/VideoClicks&gt;
+
+                        &lt;MediaFiles&gt;
+                            &lt;MediaFile id=&quot;5241&quot; delivery=&quot;progressive&quot; type=&quot;video/mp4&quot; bitrate=&quot;500&quot; width=&quot;400&quot; height=&quot;300&quot; minBitrate=&quot;360&quot; maxBitrate=&quot;1080&quot; scalable=&quot;1&quot; maintainAspectRatio=&quot;1&quot; codec=&quot;0&quot;&gt;
+                                &lt;![CDATA[https://iabtechlab.com/wp-content/uploads/2016/07/VAST-4.0-Short-Intro.mp4]]&gt;
+                            &lt;/MediaFile&gt;
+                        &lt;/MediaFiles&gt;
+
+
+                    &lt;/Linear&gt;
+                &lt;/Creative&gt;
+            &lt;/Creatives&gt;
+            &lt;Extensions&gt;
+                &lt;Extension type=&quot;iab-Count&quot;&gt;
+                    &lt;total_available&gt;
+                        &lt;![CDATA[ 2 ]]&gt;
+                    &lt;/total_available&gt;
+                &lt;/Extension&gt;
+            &lt;/Extensions&gt;
+        &lt;/InLine&gt;
+    &lt;/Ad&gt;
+&lt;/VAST&gt;</code></pre>
+						-->
+						<a href="https://github.com/InteractiveAdvertisingBureau/VAST_Samples/blob/master/VAST%204.0%20Samples/Inline_Linear_Tag-test.xml" target="_blank">Example</a>
+					</section>
+					<section>
+						<h3>Wrapper VAST</h3>
+						<a href="https://github.com/InteractiveAdvertisingBureau/VAST_Samples/blob/master/VAST%204.0%20Samples/Wrapper_Tag-test.xml" target="_blank">Example</a>
+					</section>
+					<section>
+						<h3>Find <span class="text-red bold">Ad</span> Video information from VAST</h3>
+						<ul>
+							<li>Wrapper VAST: look for <span class="text-red bold">VASTAdTagURI</span>, and send request to get Inline VAST</li>
+							<li>Inline VAST: look for <span class="text-red bold">MediaFile</span>, and send request to get the ad video</li>
+						</ul>
+					</section>
+				</section>
+				<!-- End of VAST -->
+
+				<!-- VMAP -->
+				<section>
+					<section>
+						<h2><span class="text-red">VMAP</span></h2>
+						<p><span class="text-red bold">V</span>ideo <span class="text-red bold">M</span>ultiple <span class="text-red bold">A</span>d <span class="text-red bold">P</span>laylist</p>
+					</section>
+					<section>
+						<h3>In one word, <span class="text-red">Timeline</span></h3>
+					</section>
+					<section>
+						<h3>More details ...</h3>
+						<p><span class="text-red bold">VMAP</span> represents a playlist structure that wraps one or more ad responses</p>
+					</section>
+					<section>
+						<h3>VMAP process</h3>
+						<img style="height:400px; background-color: #FFF; border:none; box-shadow:none;" src="img/web-training/training10/vmap.png"/>
+					</section>
+					<section>
+						<h3>AdBreak</h3>
+						<img style="height:350px; background-color: #FFF; border:none; box-shadow:none;" src="img/web-training/training10/vmap-structure.png"/>
+					</section>
+				</section>
+				<!-- End of VMAP -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 960,
+				height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				// margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				// minScale: 0.2,
+				// maxScale: 1.5
+
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				sequencediagrams: {
+					theme: "simple",
+					useFragments: true,
+					initialize: (function(diagramContainer){
+						console.log("Diagram rendered!");
+					})
+			 },
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/sequence-diagrams/webfont.js' },
+					{ src: 'plugin/sequence-diagrams/snap.svg-min.js' },
+					{ src: 'plugin/sequence-diagrams/underscore-min.js' },
+					{ src: 'plugin/sequence-diagrams/sequence-diagram-min.js' },
+					{ src: 'plugin/sequence-diagrams/sequence-diagrams-plugin-modified.js' },
+				]
+			});
+
+
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			/*
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			*/
+		</script>
+	</body>
+</html>
